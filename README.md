@@ -62,6 +62,7 @@ Here are some tips.
 
 1. Go and viewsource a lot of websites and see how their htmls are strucured
 2. Do not get into holy wars of this way that way. There are millions of ways to skin a cat.
+3. Always design with responsive in mind. "But this internal web app will never be used on a mobile phone. I get it. But thinking in responsive design forces you to think hard about your design. And forces you to have simpler design. The Simpler The Better.
 
 So [let's learn](https://github.com/duk/FrontendLessons/tree/master/html#html-lessons).
 
@@ -69,17 +70,27 @@ So [let's learn](https://github.com/duk/FrontendLessons/tree/master/html#html-le
 
 ## Mastering CSS
 
-To be completed by the end of March 2017
+When you start builing a website. Ask these questions.
+
+1. Do I need to use CSS? Always to better to use out-of-box html elements as they are. I've been some hideous web design sorcery using `<div>` as checkbox because the business wanted certain look and feel that `<intput type="checkbox">` could not handle. Do **NOT** do that.
+2. Keep the styling to the minimum.
+3. Understand [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity). The idea is simple. The more specific styling scope trumps less specific styling scope.
 
 <a name="javascript" />
 
 ## Mastering JavaScript
 
-To be completed by the end of April 2017
+My favorite JavaScript books
+
+1. [Eloquent JavaScript](https://www.amazon.com/Eloquent-JavaScript-Modern-Introduction-Programming/dp/1593275846)
+2. [Functional JavaScript](https://www.amazon.com/Functional-JavaScript-Introducing-Programming-Underscore-js/dp/1449360726)
+3. [Secrets of the JavaScript Ninja](https://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/1617292850/)
+4. [JavaScript Patterns](https://www.amazon.com/JavaScript-Patterns-Better-Applications-Coding/dp/0596806752)
+
 
 <a name="thirdparty" />
 
-## Mastering Thirparty (At least one)
+## Mastering Third-party (At least one)
 
 To be completed by the end of May 2017
 
