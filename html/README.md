@@ -200,12 +200,91 @@ In Bitbucket, the right sidebar contains recent commits. That's pretty useful.
 Again we notice Bitbucket is using semantic tags such as `<article>` and `<section>`. 
 On [this great document](https://developer.mozilla.org/en-US/docs/Web/HTML/Element), Firefox groups them into "Content Sectioning".
 
-And sidebar seems be nested into `<main>` tag; it is and should logically tied to the page content. 
+And sidebar seems be nested into `<main>` tag; it is and should be logically tied to the page content. 
 
 <a name="menu" /> 
 
 ## Menu
 
+I personally believe that web app shouldn't be exactly like desktop app. Even for a desktop app, I don't hardly go through menu and submenus. And I usually get
+frustrated by too much information.
+
+A good web developer understands how to eliminate things. Any additional elimination is a bandwidth gain. It's like borrowing your friend's car for grocery shoppping 
+when you were living in a dorm. Don't use up gas driving everywhere. Just do grocery shopping. Bandwidth is not free. Be mindful.
+
+Here are some snippets from various websites.
+
+From Mozilla Developer Network
+
+```html
+<div class="submenu submenu-cols-2 js-submenu" id="nav-platform-submenu" aria-hidden="true" style="z-index: 99998; display: none;">
+  <div class="submenu-column">
+    <div class="title">Technologies</div>
+    <ul>
+      <li><a href="/en-US/docs/Web/HTML">HTML</a></li>
+      <li><a href="/en-US/docs/Web/CSS">CSS</a></li>
+      <li><a href="/en-US/docs/Web/JavaScript">JavaScript</a></li>
+      <li><a href="/en-US/docs/Web/Guide/Graphics">Graphics</a></li>
+      <li><a href="/en-US/docs/Web/HTTP">HTTP</a></li>
+      <li><a href="/en-US/docs/Web/API">APIs / DOM</a></li>
+      <li><a href="/en-US/docs/Mozilla/Add-ons/WebExtensions">WebExtensions</a></li>
+      <li><a href="/en-US/docs/Web/MathML">MathML</a></li>
+    </ul>
+  </div>
+  <div class="submenu-column last">
+    <div class="title">References &amp; Guides</div>
+    <ul>
+      <li><a href="/en-US/docs/Learn">Learning web development</a></li>
+      <li><a href="/en-US/docs/Web/Tutorials">Tutorials</a></li>
+      <li><a href="/en-US/docs/Web/Reference">References</a></li>
+      <li><a href="/en-US/docs/Web/Guide">Developer Guides</a></li>
+      <li><a href="/en-US/docs/Web/Accessibility">Accessibility</a></li>
+      <li><a href="/en-US/docs/Games">Game development</a></li>
+      <li><a href="/en-US/docs/Web">...more docs</a></li>
+    </ul>
+  </div>
+  <button type="button" class="submenu-close transparent"><span class="offscreen">Close submenu</span><i aria-hidden="true" class="icon-remove-sign"></i></button></div>
+```
+
+From Bitbucket
+
+```html
+<div class="aui-dropdown2-section">
+  <strong>Recently viewed</strong>
+  <ul class="aui-list-truncate">
+    <li>
+      <a href="/account/user/workopenly/projects/TIP" class="aui-icon-container project-link" tabindex="-1">
+        <span class="aui-avatar aui-avatar-xsmall aui-avatar-project">
+              <span class="aui-avatar-inner">
+                <img src="https://bitbucket.org/account/user/workopenly/projects/TIP/avatar/32">
+              </span>
+        </span>
+        tipjar
+      </a>
+    </li>
+    <li>
+      <a href="/account/user/workopenly/projects/WOR" class="aui-icon-container project-link" tabindex="-1">
+        <span class="aui-avatar aui-avatar-xsmall aui-avatar-project">
+              <span class="aui-avatar-inner">
+                <img src="https://bitbucket.org/account/user/workopenly/projects/WOR/avatar/32">
+              </span>
+        </span>
+        workopenly
+      </a>
+    </li>
+    <li>
+      <a href="/account/user/bhndipper/projects/DIP" class="aui-icon-container project-link" tabindex="-1">
+        <span class="aui-avatar aui-avatar-xsmall aui-avatar-project">
+              <span class="aui-avatar-inner">
+                <img src="https://bitbucket.org/account/user/bhndipper/projects/DIP/avatar/32">
+              </span>
+        </span>
+        DipperUI
+      </a>
+    </li>
+  </ul>
+</div>
+```
 
 <a name="footer" />
 
