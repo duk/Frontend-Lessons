@@ -63,7 +63,7 @@ Here are some tips.
 1. Go and viewsource a lot of websites and see how their htmls are strucured
 2. Do not get into holy wars of this way that way. There are millions of ways to skin a cat.
 
-So [let's learn]().
+So [let's learn](https://github.com/duk/FrontendLessons/tree/master/html#html-lessons).
 
 <a name="css" />
 
