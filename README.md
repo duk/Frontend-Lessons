@@ -76,6 +76,8 @@ When you start builing a website. Ask these questions.
 2. Keep the styling to the minimum.
 3. Understand [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity). The idea is simple. The more specific styling scope trumps less specific styling scope.
 
+Here we will study a few popular CSS frameworks. We will go through line by line and truly understand what is happening and how each line affects styling.
+
 <a name="javascript" />
 
 ## Mastering JavaScript
@@ -87,6 +89,7 @@ My favorite JavaScript books
 3. [Secrets of the JavaScript Ninja](https://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/1617292850/)
 4. [JavaScript Patterns](https://www.amazon.com/JavaScript-Patterns-Better-Applications-Coding/dp/0596806752)
 
+Once you are comfortable with JavaScript, you should look into [TypeScript](https://www.typescriptlang.org/docs/tutorial.html).
 
 <a name="thirdparty" />
 
@@ -94,14 +97,20 @@ My favorite JavaScript books
 
 To be completed by the end of May 2017
 
+We will walk through [ReactJS](https://facebook.github.io/react/) and [AngularJS](https://angular.io/). And we will also discuss about Web Components and [Polymer](https://www.polymer-project.org/1.0/).
+
 <a name="tools" />
 
 ## Mastering Tools
 
-To be completed by the end of June 2017
+To be completed by the end of June 2017.
+
+I will discuss about [Webpack](https://webpack.js.org/) which I think the best tool out there as of Feb 2017.
 
 <a name="cloud" />
 
 ## Mastering Cloud
 
-To be completed by the end of July 2017
+To be completed by the end of July 2017.
+
+This section I will talk about how we can leverage various Cloud services to deploy our applications. We will go through [AWS services](https://aws.amazon.com/documentation/).
