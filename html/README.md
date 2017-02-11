@@ -10,6 +10,13 @@ I will use a few famous websites as examples.
 * [Twitter](https://twitter.com/) (Social)
 * [Bitbucket](https://bitbucket.org/) (I just want to use their frontpage as Splash page)
 
+Here is my approach to web application design. 
+
+1. Less is better. Any addition on your page adds more weight to it.
+2. Do not hide things. Try to avoid dropdown menu if you can. Show only the things the user needs.
+3. Contents trump Styles. Be fast. Be simple. Be elegant.
+4. Every line needs to have purpose.
+
 
 ##### Table of Contents  
 
@@ -108,6 +115,20 @@ Let's compare that with Bitbucket's splash page
 ```
 
 Now we start seeing patterns. All the lists on a webpage seem to be using `<ul>` tag. But I also see additional tags in Bitbucket html tag.
+
+Can you see them?
+
+1. Bitbucket's html is more semantic. There are html tags that exist just for semantic purpose; they have no built-in styles. They are just for logical separation of documents.
+2. Bitbucket follows [BEM syntax](https://en.bem.info/methodology/naming-convention/)
+
+There are a lot of ways to style your website. And there are a lot of methodologies out there. Use whatever fits your need. We will cover them in CSS section.
+
+Here are what we've learned so far.
+
+1. `<div></div>` is heavily used in html to group things.
+2. `<ul></ul>` for any type of list.
+3. We need some sort of naming convention for CSS. (e.g. BEM)
+4. You do have an option of adding additonal semantic tags `<nav>` or `<header>` as in Bitbucket's home page. I personally prefer to have them since they make it easier to find things.
 
 <a name="sidebar" />
 
