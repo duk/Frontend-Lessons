@@ -129,14 +129,83 @@ Here are what we've learned so far.
 2. `<ul></ul>` for any type of list.
 3. We need some sort of naming convention for CSS. (e.g. BEM)
 4. You do have an option of adding additonal semantic tags `<nav>` or `<header>` as in Bitbucket's home page. I personally prefer to have them since they make it easier to find things.
+5. And on Bitbucket page, you see `<div style="height: 95px;">` which contains inline styling and some people consider as **bad**. I will talk about it more when I get to CSS.
 
 <a name="sidebar" />
 
 ## Sidebar
 
-<a name="menu" />
+Sidebar contains page specific info. Application specific info should go to navbar. So sidebar should contain related info based on what page the user is on. Again, if you can get away with 
+not having sidebar, do that. The less is better.
+
+Let's see what kind of information some websites contain on sidebars.
+
+In Bitbucket, the right sidebar contains recent commits. That's pretty useful.
+
+```html
+<div class="aui-item sidebar">
+
+  <section class="activity">
+    <h2>
+      Recent activity
+
+      <a href="/duklee/rss/feed?token=502c623b37f9f3c8ec08f39876e7717f" title="Subscribe to this newsfeed" class="rss"><span class="aui-icon aui-icon-small aui-iconfont-rss rss-icon">Subscribe to this newsfeed</span></a>
+    </h2>
+
+    <div class="newsfeed">
+
+      <article class="news-item pushed" data-author="duklee">
+
+        <a href="/duklee/">
+          <div class="aui-avatar aui-avatar-small">
+            <div class="aui-avatar-inner">
+              <img alt="Duk Lee" src="https://bitbucket.org/account/duklee/avatar/48/?ts=1486826581" class="" data-src-url="https://bitbucket.org/account/duklee/avatar/48/?ts=1486826581"
+                data-src-url-2x="https://bitbucket.org/account/duklee/avatar/96/?ts=1486826581">
+            </div>
+          </div>
+        </a>
+
+        <div class="news-item-title">
+
+          <a href="/duklee/jekyllblog/commits/8c75fd08b5deb7262419ac290bbb151b1f14cb27">1 commit</a>
+
+        </div>
+        <div class="news-item-description">
+
+          Pushed to
+
+          <a href="/duklee/jekyllblog" title="duklee/jekyllblog">duklee/jekyllblog</a>
+        </div>
+
+        <div class="changesets">
+          <div class="changeset">
+            <a href="/duklee/jekyllblog/commits/8c75fd08b5deb7262419ac290bbb151b1f14cb27" class="changeset-hash">8c75fd0</a>photo
+            section added
+          </div>
+        </div>
+
+        <div class="news-item-info">
+
+          <a href="/duklee/">Duk Lee</a> ·
+          <time datetime="2017-01-22T07:38:46-08:00" title="22 January 2017 07:38">2017-01-22</time>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+</div>
+```
+
+Again we notice Bitbucket is using semantic tags such as `<article>` and `<section>`. 
+On [this great document](https://developer.mozilla.org/en-US/docs/Web/HTML/Element), Firefox groups them into "Content Sectioning".
+
+And sidebar seems be nested into `<main>` tag; it is and should logically tied to the page content. 
+
+<a name="menu" /> 
 
 ## Menu
+
 
 <a name="footer" />
 
