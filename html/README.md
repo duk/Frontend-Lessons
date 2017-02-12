@@ -369,15 +369,15 @@ Footer contains boring corporate fine print stuff. Also some useful links can go
 
 ### Add Placeholder
 
-1. Go to `http://127.0.0.1:8080/html/index.html` on your browser
+1. Go to [`http://127.0.0.1:8080/html/index.html`](http://127.0.0.1:8080/html/index.html) on your browser
 2. As you can see you do not see anything.
 3. Now from your favorite editor, open `index.html`
-4. We will add three html tags; `<header>`, `<main>`, `<footer>` (`http://127.0.0.1:8080/html/placeholder.html`)
+4. We will add three html tags; `<header>`, `<main>`, `<footer>` ([`http://127.0.0.1:8080/html/placeholder.html`](http://127.0.0.1:8080/html/placeholder.html))
 
 Let's open up a developer tool and see what's going on. By the way, make sure you familarize yourself with the developer tool. If you are
 a web developer, you will be using that a lot.
 
-Go to `http://127.0.0.1:8080/html/placeholder.html` and open up a developer tool. Then select `<header>`. All three tags have the
+Go to [`http://127.0.0.1:8080/html/placeholder.html`](http://127.0.0.1:8080/html/placeholder.html) and open up a developer tool. Then select `<header>`. All three tags have the
 same built-in style. `display: block;` is like a line with return carriage at the end; the entire row is occupied by the element. And
 
 
@@ -408,6 +408,7 @@ To visiualize what's happening, let's add borders to `<header>`,`<main>` and `<f
 ```
 
 Let's work on `<header>` section more. I would like to add a logo, search box and a navigation bar inside the `<header>`
+Open [`http://127.0.0.1:8080/html/layouts.html`](http://127.0.0.1:8080/html/layouts.html)
 
 ```html
 <header>
@@ -429,8 +430,33 @@ Let's work on `<header>` section more. I would like to add a logo, search box an
 </header>
 ```
 
-Now what do you see? Things look stack up against one another. But we want it to line up horizontally not vertically. If you investigate the tags,
+Now what do you see? Things look stacked up against one another. But we want it to line up horizontally not vertically. If you investigate the tags,
 you will notice `<div>` and `<form>` are `block` elements.
 
-Let's head over to Mozilla Developer Network CSS doc and read about `display` options.
+Let's head over to Mozilla Developer Network CSS doc and read about `display` options. When I made these change below, I was able to display the log, 
+search and menu items horizontally. Open [`http://127.0.0.1:8080/html/layouts00.html`](http://127.0.0.1:8080/html/layouts00.html) to see the change.
+
+```css
+header,
+main,
+footer,
+div,
+form {
+    border: 1px solid black;
+}
+        
+div {
+    display: inline-block;
+}
+/*form {
+    display: inline-block;
+}*/
+        
+nav,
+li {
+    display: inline-block;
+}
+```
+
+We will worry about making things pretty in CSS tutorials. I will try to keep CSS stuff to the minium so that we can focus on html.
     
