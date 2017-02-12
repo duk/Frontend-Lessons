@@ -459,4 +459,34 @@ li {
 ```
 
 We will worry about making things pretty in CSS tutorials. I will try to keep CSS stuff to the minium so that we can focus on html.
-    
+
+Now let's work on `<main>`. I would not go more than three sections when it comes to main content. So let's divide the main into three sections.
+
+1. Breadcrumb
+2. Left sidebar (optional)
+3. Content
+4. Right sidebar (optional)
+
+Again I want you to think long and hard about sidebar. While desinging a website, keep asking yourself this question about everything; 
+'Do we really need it?' And think about how often you used anything on any sidebars.
+
+```html
+<main>
+    <section id="breadcrumb">Breadcrumb</section>
+    <section id="left">Left sidebar</section>
+    <section id="content">Content</section>
+    <section id="right">Right sidebar</section>
+</main>
+```
+
+In order to line them horizontally. But we want the breadcrumb to stay on top.
+
+```css
+section#left,
+section#right,
+section#content {
+    display: inline-block;
+}
+```
+
+Open [`http://127.0.0.1:8080/html/layouts01.html`](http://127.0.0.1:8080/html/layouts01.html) to see the change.

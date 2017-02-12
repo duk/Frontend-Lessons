@@ -9,7 +9,8 @@
         main,
         footer,
         div,
-        form {
+        form,
+        section {
             border: 1px solid black;
         }
         
@@ -22,6 +23,12 @@
         
         nav,
         li {
+            display: inline-block;
+        }
+        
+        section#left,
+        section#right,
+        section#content {
             display: inline-block;
         }
     </style>
@@ -46,7 +53,10 @@
 
     </header>
     <main>
-        this is main
+        <section id="breadcrumb">Breadcrumb</section>
+        <section id="left">Left sidebar</section>
+        <section id="content">Content</section>
+        <section id="right">Right sidebar</section>
     </main>
     <footer>
         this is a footer
