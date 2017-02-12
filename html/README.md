@@ -365,4 +365,11 @@ Footer contains boring corporate fine print stuff. Also some useful links can go
 5. Run `npm install`
 6. Run `live-server` Your browser should start with index.html
 
+<a name="placeholder" />
 
+### Placeholder
+
+1. Go to `http://127.0.0.1:8080/html/index.html` on your browser
+2. As you can see you do not see anything.
+3. Now from your favorite editor, open `index.html`
+4. We will add three html tags; `<header>`, `<main>`, `<footer>` (`http://127.0.0.1:8080/html/placeholder.html`)
