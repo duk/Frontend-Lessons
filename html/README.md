@@ -27,8 +27,8 @@ Here is my approach to web application design.
 4. [Footer](#footer)
 5. [Tutorials](#tutorials)
    1. [How to set up](#howtosetup) 
-   2. [Placeholders](#placeholder)
-   3. [Layouts](#layouts)    
+   2. [Add Placeholders](#addplaceholder)
+   3. [Add Layouts](#addlayouts)
 
 <a name="layouts" />
 
@@ -365,11 +365,72 @@ Footer contains boring corporate fine print stuff. Also some useful links can go
 5. Run `npm install`
 6. Run `live-server` Your browser should start with index.html
 
-<a name="placeholder" />
+<a name="addplaceholder" />
 
-### Placeholder
+### Add Placeholder
 
 1. Go to `http://127.0.0.1:8080/html/index.html` on your browser
 2. As you can see you do not see anything.
 3. Now from your favorite editor, open `index.html`
 4. We will add three html tags; `<header>`, `<main>`, `<footer>` (`http://127.0.0.1:8080/html/placeholder.html`)
+
+Let's open up a developer tool and see what's going on. By the way, make sure you familarize yourself with the developer tool. If you are
+a web developer, you will be using that a lot.
+
+Go to `http://127.0.0.1:8080/html/placeholder.html` and open up a developer tool. Then select `<header>`. All three tags have the
+same built-in style. `display: block;` is like a line with return carriage at the end; the entire row is occupied by the element. And
+
+
+```css
+article, aside, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+```
+
+<a name="addlayouts" />
+
+### Add Layouts
+
+To visiualize what's happening, let's add borders to `<header>`,`<main>` and `<footer>`
+
+```html
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        header,
+        main,
+        footer {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+```
+
+Let's work on `<header>` section more. I would like to add a logo, search box and a navigation bar inside the `<header>`
+
+```html
+<header>
+    <a href="#">super awesome logo</a>
+    <div>
+        <form action="">
+            <input type="text">
+            <button>Search</button>
+        </form>
+    </div>
+    <nav>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+    </nav>
+
+</header>
+```
+
+Now what do you see? Things look stack up against one another. But we want it to line up horizontally not vertically. If you investigate the tags,
+you will notice `<div>` and `<form>` are `block` elements.
+
+Let's head over to Mozilla Developer Network CSS doc and read about `display` options.
+    
