@@ -25,6 +25,10 @@ Here is my approach to web application design.
 2. [Sidbar](#sidebar)
 3. [Menu](#menu)
 4. [Footer](#footer)
+5. [Tutorials](#tutorials)
+   1. [How to set up](#howtosetup) 
+   2. [Placeholders](#placeholder)
+   3. [Layouts](#layouts)    
 
 <a name="layouts" />
 
@@ -345,3 +349,20 @@ Footer contains boring corporate fine print stuff. Also some useful links can go
   </section>
 </footer>
 ```
+
+<a name="tutorials" />
+
+## Tutorials
+
+<a name="howtosetup" />
+
+### How to set up
+
+1. Make sure you have git installed on your machine. If you are using a Mac or any Unix machine, type `git` in terminal. Follow this [instruction](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+2. Clone this git repo. `git clone https://github.com/duk/FrontendLessons.git`
+3. Make sure you have node installed on your machine as well. type `node` in termanl to check. Get nodejs from [here](https://nodejs.org/en/download/)
+4. Go to the cloned directory by `cd FrontendLessons` or wherever your cloned directory is.
+5. Run `npm install`
+6. Run `live-server` Your browser should start with index.html
+
+
