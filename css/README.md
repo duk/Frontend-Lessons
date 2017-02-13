@@ -128,6 +128,9 @@ Open [`http://127.0.0.1:8080/css/skeleton02.html`](http://127.0.0.1:8080/css/ske
 }
 ```
 
+Now we are getting into Skeleton's Grid system. First thing we notice is that all the measurement is in percentage so that the layout
+stays responsive regardless what devices that the user is on.
+
 Open [`http://127.0.0.1:8080/css/skeleton03.html`](http://127.0.0.1:8080/css/skeleton03.html)
 
 ```css
