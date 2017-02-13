@@ -46,6 +46,10 @@ the way we can make sure things are centered.
   box-sizing: border-box; }
 ```
 
+[Interesting article](https://www.paulirish.com/2012/box-sizing-border-box-ftw/) on `box-sizing: border-box;`. Also read [this article](https://css-tricks.com/box-sizing/) as well.
+
+Open [`http://127.0.0.1:8080/css/skeleton01.html`](http://127.0.0.1:8080/css/skeleton01.html)
+
 ```css
 @media (min-width: 400px) {
   .container {
@@ -53,6 +57,11 @@ the way we can make sure things are centered.
     padding: 0; }
 }
 ```
+Go read [Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries). So what this part is saying is that
+'if the browser size is bigger than 400px, we can add some more padding by reducing the width to 85%. But when it shrink below 400px, we are now
+contrained with space. So stretch width to full 100%.
+
+Open [`http://127.0.0.1:8080/css/skeleton02.html`](http://127.0.0.1:8080/css/skeleton02.html)
 
 ```css
 @media (min-width: 550px) {
@@ -119,6 +128,8 @@ the way we can make sure things are centered.
 }
 ```
 
+Open [`http://127.0.0.1:8080/css/skeleton03.html`](http://127.0.0.1:8080/css/skeleton03.html)
+
 ```css
 /* NOTE
 html is set to 62.5% so that all the REM measurements throughout Skeleton
@@ -126,6 +137,8 @@ are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 ```
+
+Open [`http://127.0.0.1:8080/css/skeleton04.html`](http://127.0.0.1:8080/css/skeleton04.html)
 
 ```css
 body {
@@ -135,6 +148,7 @@ body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton05.html`](http://127.0.0.1:8080/css/skeleton05.html)
 
 ```css
 h1, h2, h3, h4, h5, h6 {
@@ -149,6 +163,8 @@ h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
 h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 ```
 
+Open [`http://127.0.0.1:8080/css/skeleton06.html`](http://127.0.0.1:8080/css/skeleton06.html)
+
 ```css
 @media (min-width: 550px) {
   h1 { font-size: 5.0rem; }
@@ -159,11 +175,13 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
   h6 { font-size: 1.5rem; }
 }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton07.html`](http://127.0.0.1:8080/css/skeleton07.html)
 
 ```css
 p {
   margin-top: 0; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton08.html`](http://127.0.0.1:8080/css/skeleton08.html)
 
 ```css
 a {
@@ -171,6 +189,7 @@ a {
 a:hover {
   color: #0FA0CE; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton09.html`](http://127.0.0.1:8080/css/skeleton09.html)
 
 ```css
 .button,
@@ -230,6 +249,7 @@ input[type="button"].button-primary:focus {
   background-color: #1EAEDB;
   border-color: #1EAEDB; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton10.html`](http://127.0.0.1:8080/css/skeleton10.html)
 
 ```css
 input[type="email"],
@@ -291,6 +311,7 @@ label > .label-body {
   margin-left: .5rem;
   font-weight: normal; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton11.html`](http://127.0.0.1:8080/css/skeleton11.html)
 
 ```css
 ul {
@@ -309,6 +330,7 @@ ol ul {
 li {
   margin-bottom: 1rem; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton12.html`](http://127.0.0.1:8080/css/skeleton12.html)
 
 ```css
 code {
@@ -324,6 +346,7 @@ pre > code {
   padding: 1rem 1.5rem;
   white-space: pre; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton13.html`](http://127.0.0.1:8080/css/skeleton13.html)
 
 ```css
 th,
@@ -338,6 +361,7 @@ th:last-child,
 td:last-child {
   padding-right: 0; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton14.html`](http://127.0.0.1:8080/css/skeleton14.html)
 
 ```css
 button,
@@ -359,6 +383,7 @@ ol,
 form {
   margin-bottom: 2.5rem; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton15.html`](http://127.0.0.1:8080/css/skeleton15.html)
 
 ```css
 .u-full-width {
@@ -373,6 +398,7 @@ form {
   float: left; }
 
 ```
+Open [`http://127.0.0.1:8080/css/skeleton16.html`](http://127.0.0.1:8080/css/skeleton16.html)
 
 ```css
 hr {
@@ -381,6 +407,7 @@ hr {
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton17.html`](http://127.0.0.1:8080/css/skeleton17.html)
 
 ```css
 .container:after,
@@ -390,6 +417,7 @@ hr {
   display: table;
   clear: both; }
 ```
+Open [`http://127.0.0.1:8080/css/skeleton18.html`](http://127.0.0.1:8080/css/skeleton18.html)
 
 ```css
 /* Larger than mobile */
@@ -407,3 +435,5 @@ hr {
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
 ```
+
+Open [`http://127.0.0.1:8080/css/skeleton19.html`](http://127.0.0.1:8080/css/skeleton19.html)
