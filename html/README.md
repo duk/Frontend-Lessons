@@ -29,6 +29,8 @@ Here is my approach to web application design.
    1. [How to set up](#howtosetup) 
    2. [Add Placeholders](#addplaceholder)
    3. [Add Layouts](#addlayouts)
+   4. [Add Tables](#addtables)
+   5. [Add Forms](#addforms)
 
 <a name="layouts" />
 
@@ -508,3 +510,9 @@ section#middlefooter {
     display: inline-block;
 }
 ```
+
+Open [`http://127.0.0.1:8080/html/layouts02.html`](http://127.0.0.1:8080/html/layouts02.html) to see the change
+
+<a name="addtable" />
+
+### Add Table

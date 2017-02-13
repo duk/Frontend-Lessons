@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        header,
+        main,
+        footer,
+        div,
+        form,
+        section {
+            border: 1px solid black;
+        }
+        
+        div {
+            display: inline-block;
+        }
+        /*form {
+            display: inline-block;
+        }*/
+        
+        nav,
+        li {
+            display: inline-block;
+        }
+        
+        section#left,
+        section#right,
+        section#content {
+            display: inline-block;
+        }
+        
+        section#leftfooter,
+        section#rightfooter,
+        section#middlefooter {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#">super awesome logo</a>
+        <div>
+            <form action="">
+                <input type="text">
+                <button>Search</button>
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        <section id="breadcrumb">Breadcrumb</section>
+        <section id="left">Left sidebar</section>
+        <section id="content">Content</section>
+        <section id="right">Right sidebar</section>
+    </main>
+    <footer>
+        <section id="leftfooter">Left footer section</section>
+        <section id="middlefooter">Middle footer section</section>
+        <section id="rightfooter">Right footer section</section>
+    </footer>
+</body>
+
+</html>
