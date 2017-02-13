@@ -513,6 +513,42 @@ section#middlefooter {
 
 Open [`http://127.0.0.1:8080/html/layouts02.html`](http://127.0.0.1:8080/html/layouts02.html) to see the change
 
-<a name="addtable" />
+<a name="addtables" />
 
-### Add Table
+### Add Tables
+
+`<table>` is one of the most used html tag for a good reason. Most web applications are what we call **CRUD(Create, Read, Update, Delete)** apps.
+And `<table>` handles `reading` part of `CRUD` apps.
+
+```html
+<table>
+    <tr>
+        <th>Order No.</th>
+        <th>Quantity</th>
+    </tr>
+    <tr>
+        <td>123</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>456</td>
+        <td>12</td>
+    </tr>
+</table>
+```
+
+<a name="addforms" />
+
+### Add Forms
+
+In `CRUD` app, `<form>` tag handles `CREATE` and `UPDATE`
+
+```html
+<form action="" method="post">
+  <fieldset>
+    <legend>Title</legend>
+    <input type="radio" id="radio">
+    <label for="radio">Click me</label>
+  </fieldset>
+</form>
+```
