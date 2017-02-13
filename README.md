@@ -78,6 +78,8 @@ When you start builing a website. Ask these questions.
 
 Here we will study a few popular CSS frameworks. We will go through line by line and truly understand what is happening and how each line affects styling.
 
+So [let's learn](https://github.com/duk/Frontend-Lessons/tree/master/css#mastering-css).
+
 <a name="javascript" />
 
 ## Mastering JavaScript
