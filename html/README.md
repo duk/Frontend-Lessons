@@ -490,3 +490,21 @@ section#content {
 ```
 
 Open [`http://127.0.0.1:8080/html/layouts01.html`](http://127.0.0.1:8080/html/layouts01.html) to see the change.
+
+Now, footer is pretty much the same thing as the `<main>`.
+
+```html
+<footer>
+    <section id="leftfooter">Left footer section</section>
+    <section id="middlefooter">Middle footer section</section>
+    <section id="rightfooter">Right footer section</section>
+</footer>
+```
+Again, we need to convert them into `inline-block` to line them horizontally.
+```css
+section#leftfooter,
+section#rightfooter,
+section#middlefooter {
+    display: inline-block;
+}
+```
