@@ -26,7 +26,7 @@ To have a logevity in software industry, you need to master your craft. I am tir
 
 Yep. It's mostly for me. This is how I spend my `me` time when I wake up early in the morning. I get up, sneak out of bed. But I always wake my dog up. Cooper and I come down to my study, I wake my computer up then I start typing. Cooper would beg for my attention for awhile. Then he gives up, climbs up to his chair and falls back to sleep.
 
-Deciding to start this github project was one of the best ideas that I had. Now I have a goal. No distractions. Just type and learn. Keeping moving ahead.
+Deciding to start this github project was one of the best ideas that I had. Now I have a goal. No distractions. Just type and learn. Keep moving ahead.
 
 Unlike most folks these days, I am a huge believer in "memorizing as much as possible." What's cooler when people come to your desk with a question? You googling the answer or you answering it without googling? Which scenario do you think people would walk away thinking you know your stuff?
 
