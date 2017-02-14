@@ -125,9 +125,10 @@ So [let's learn me some JavaScript](https://github.com/duk/Frontend-Lessons/tree
 0. [Learn from JQuery](https://github.com/duk/Frontend-Lessons/tree/master/javascript#jquery)
 1. [Learn from Underscore](https://github.com/duk/Frontend-Lessons/tree/master/javascript#underscore)
 2. [Learn from Backbone](https://github.com/duk/Frontend-Lessons/tree/master/javascript#backbone)
-3. [Learn from D3js](https://github.com/duk/Frontend-Lessons/tree/master/javascript#d3js)
-4. [Look Ma. I can handle server-side as well](https://github.com/duk/Frontend-Lessons/tree/master/javascript#nodejs)
-5. [Let's bring back some sanity to JavaScript and the committee is not moving fast enough](https://github.com/duk/Frontend-Lessons/tree/master/javascript#typesript)
+3. [Learn from ReactJS](https://github.com/duk/Frontend-Lessons/tree/master/javascript#reactjs)
+4. [Learn from D3js](https://github.com/duk/Frontend-Lessons/tree/master/javascript#d3js)
+5. [Look Ma. I can handle server-side as well](https://github.com/duk/Frontend-Lessons/tree/master/javascript#nodejs)
+6. [Let's bring back some sanity to JavaScript and the committee is not moving fast enough](https://github.com/duk/Frontend-Lessons/tree/master/javascript#typesript)
 
 <a name="thirdparty" />
 
