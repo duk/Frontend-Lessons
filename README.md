@@ -118,7 +118,7 @@ My favorite JavaScript books
 
 Once you are comfortable with JavaScript, you should look into [TypeScript](https://www.typescriptlang.org/docs/tutorial.html).
 
-So [let's learn me some JavaScript](https://github.com/duk/Frontend-Lessons/tree/master/javascript)
+So [let's learn me some JavaScript](https://github.com/duk/Frontend-Lessons/tree/master/javascript#mastering-javascript)
 
 <a name="thirdparty" />
 
