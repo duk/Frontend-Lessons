@@ -180,7 +180,6 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 
 First, the author is setting styles for header tags.
 
-Open [`http://127.0.0.1:8080/css/skeleton06.html`](http://127.0.0.1:8080/css/skeleton06.html)
 
 ```css
 @media (min-width: 550px) {
@@ -195,23 +194,15 @@ Open [`http://127.0.0.1:8080/css/skeleton06.html`](http://127.0.0.1:8080/css/ske
 
 But on bigger screen, these header tags are bigger.
 
-Open [`http://127.0.0.1:8080/css/skeleton07.html`](http://127.0.0.1:8080/css/skeleton07.html)
-
 ```css
 p {
   margin-top: 0; }
-```
-Open [`http://127.0.0.1:8080/css/skeleton08.html`](http://127.0.0.1:8080/css/skeleton08.html)
 
-```css
 a {
   color: #1EAEDB; }
 a:hover {
   color: #0FA0CE; }
-```
-Open [`http://127.0.0.1:8080/css/skeleton09.html`](http://127.0.0.1:8080/css/skeleton09.html)
 
-```css
 .button,
 button,
 input[type="submit"],
@@ -234,6 +225,7 @@ input[type="button"] {
   border: 1px solid #bbb;
   cursor: pointer;
   box-sizing: border-box; }
+
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -247,6 +239,7 @@ input[type="button"]:focus {
   color: #333;
   border-color: #888;
   outline: 0; }
+
 .button.button-primary,
 button.button-primary,
 input[type="submit"].button-primary,
@@ -268,10 +261,7 @@ input[type="button"].button-primary:focus {
   color: #FFF;
   background-color: #1EAEDB;
   border-color: #1EAEDB; }
-```
-Open [`http://127.0.0.1:8080/css/skeleton10.html`](http://127.0.0.1:8080/css/skeleton10.html)
 
-```css
 input[type="email"],
 input[type="number"],
 input[type="search"],
@@ -300,6 +290,7 @@ textarea {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none; }
+
 textarea {
   min-height: 65px;
   padding-top: 6px;
@@ -315,25 +306,26 @@ textarea:focus,
 select:focus {
   border: 1px solid #33C3F0;
   outline: 0; }
+
 label,
 legend {
   display: block;
   margin-bottom: .5rem;
   font-weight: 600; }
+
 fieldset {
   padding: 0;
   border-width: 0; }
+
 input[type="checkbox"],
 input[type="radio"] {
   display: inline; }
+
 label > .label-body {
   display: inline-block;
   margin-left: .5rem;
   font-weight: normal; }
-```
-Open [`http://127.0.0.1:8080/css/skeleton11.html`](http://127.0.0.1:8080/css/skeleton11.html)
 
-```css
 ul {
   list-style: circle inside; }
 ol {
@@ -349,10 +341,7 @@ ol ul {
   font-size: 90%; }
 li {
   margin-bottom: 1rem; }
-```
-Open [`http://127.0.0.1:8080/css/skeleton12.html`](http://127.0.0.1:8080/css/skeleton12.html)
 
-```css
 code {
   padding: .2rem .5rem;
   margin: 0 .2rem;
@@ -365,10 +354,7 @@ pre > code {
   display: block;
   padding: 1rem 1.5rem;
   white-space: pre; }
-```
-Open [`http://127.0.0.1:8080/css/skeleton13.html`](http://127.0.0.1:8080/css/skeleton13.html)
 
-```css
 th,
 td {
   padding: 12px 15px;
@@ -380,10 +366,7 @@ td:first-child {
 th:last-child,
 td:last-child {
   padding-right: 0; }
-```
-Open [`http://127.0.0.1:8080/css/skeleton14.html`](http://127.0.0.1:8080/css/skeleton14.html)
 
-```css
 button,
 .button {
   margin-bottom: 1rem; }
@@ -402,10 +385,7 @@ ul,
 ol,
 form {
   margin-bottom: 2.5rem; }
-```
-Open [`http://127.0.0.1:8080/css/skeleton15.html`](http://127.0.0.1:8080/css/skeleton15.html)
 
-```css
 .u-full-width {
   width: 100%;
   box-sizing: border-box; }
@@ -417,17 +397,16 @@ Open [`http://127.0.0.1:8080/css/skeleton15.html`](http://127.0.0.1:8080/css/ske
 .u-pull-left {
   float: left; }
 
-```
-Open [`http://127.0.0.1:8080/css/skeleton16.html`](http://127.0.0.1:8080/css/skeleton16.html)
-
-```css
 hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
 ```
-Open [`http://127.0.0.1:8080/css/skeleton17.html`](http://127.0.0.1:8080/css/skeleton17.html)
+One thing to notice here is [Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+
+> A CSS pseudo-class is a keyword added to selectors that specifies a special state of the element to be selected. For example :hover will apply a style when the user hovers over the element specified by the selector.
+
 
 ```css
 .container:after,
@@ -437,7 +416,20 @@ Open [`http://127.0.0.1:8080/css/skeleton17.html`](http://127.0.0.1:8080/css/ske
   display: table;
   clear: both; }
 ```
-Open [`http://127.0.0.1:8080/css/skeleton18.html`](http://127.0.0.1:8080/css/skeleton18.html)
+
+`:after` is [Pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+
+>Just like pseudo-classes, pseudo-elements are added to selectors but instead of describing a special state, they allow you to style certain parts of a element. For example, the ::first-line pseudo-element targets only  the first line of an element specified by the selector.
+
+Also you will see [`clear: both;`](https://developer.mozilla.org/en-US/docs/Web/CSS/clear) a lot in any CSS files on the Web.
+
+>The clear CSS property specifies whether an element can be next to floating elements that precede it or must be moved down (cleared) below them. The clear property applies to both floating and non-floating elements.
+>
+>When applied to non-floating blocks, it moves the border edge of the element down until it is below the margin edge of all relevant floats. This movement (when it happens) causes margin collapsing not to occur.
+>
+>When applied to floating elements, it moves the margin edge of the element below the margin edge of all relevant floats. This affects the position of later floats, since later floats cannot be positioned higher than earlier ones.
+>
+>The floats that are relevant to be cleared are the earlier floats within the same block formatting context.
 
 ```css
 /* Larger than mobile */
@@ -457,8 +449,6 @@ Open [`http://127.0.0.1:8080/css/skeleton18.html`](http://127.0.0.1:8080/css/ske
 ```
 
 This is where you would put your stuff based on screen size you need to support. Always use `min-width`. When you design a website, you design for the smallest possible device first, then start adding media queries for bigger devies. You **never** design for a desktop then adding media queries for small devices.
-
-Open [`http://127.0.0.1:8080/css/skeleton19.html`](http://127.0.0.1:8080/css/skeleton19.html)
 
 <a name="bulma" />
 
