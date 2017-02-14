@@ -11,11 +11,14 @@ group things and memorize them. Also we will go over some popualr CSS processing
 ##### Table of Contents  
 
 0. [Learn from Skeleton](#skeleton)
-
+1. [Learn from Bulma](#bulma)
+2. [Learn from Pure CSS](#purecss)
+3. [CSS Flashcards](#flashcards)
+4. [Good CSS Websites](#links)
 
 <a name="skeleton" />
 
-## Learn from Skeleton
+## 0. Learn from Skeleton
 
 First thing you would notice in any type of CSS framework is that it comes with some sort of `normalizing` css library. Browsers do have built-in
 styles for html tags. So in order to be consistent across all the browsers we need to `remove` predefined styles. Think of it as erasing the
@@ -30,13 +33,11 @@ blackboard before writing your stuff.
   padding: 0 20px;
   box-sizing: border-box; }
 ```
-
-
-Open [`http://127.0.0.1:8080/css/skeleton00.html`](http://127.0.0.1:8080/css/skeleton00.html)
-
 `position: relative;` gives the framework flexibility to handle position if needed.
 `width: 100%` stretches the width to 100%, but `max-width` limits it only up to 960px. `margin: 0 auto;` is a good one to memorize since it's
 the way we can make sure things are centered.
+
+Open [`http://127.0.0.1:8080/css/skeleton00.html`](http://127.0.0.1:8080/css/skeleton00.html)
 
 ```css
 .column,
@@ -140,7 +141,13 @@ are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 ```
-Typography is a huge part of web design. Picking a right font family can make your website look so much better. 
+Typography is a huge part of web design. Picking a right font family can make your website look so much better. This is a good time to look into what type of measurement units are used.
+
+1. px: static value that we need to avoid as much as we can
+2. em: dynamic respect to the parent element. em values compound.
+3. rem: just like em but its values are relative to the root html element. no compounding.
+
+To me, `rem` unit seems to be a good choice for handling font size.
 
 Open [`http://127.0.0.1:8080/css/skeleton04.html`](http://127.0.0.1:8080/css/skeleton04.html)
 
@@ -152,6 +159,10 @@ body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222; }
 ```
+
+After the author sets the base font-size in `<html>` tag, he sets other font attributes in `<body>` tag.
+
+
 Open [`http://127.0.0.1:8080/css/skeleton05.html`](http://127.0.0.1:8080/css/skeleton05.html)
 
 ```css
@@ -167,6 +178,8 @@ h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
 h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 ```
 
+First, the author is setting styles for header tags.
+
 Open [`http://127.0.0.1:8080/css/skeleton06.html`](http://127.0.0.1:8080/css/skeleton06.html)
 
 ```css
@@ -179,6 +192,9 @@ Open [`http://127.0.0.1:8080/css/skeleton06.html`](http://127.0.0.1:8080/css/ske
   h6 { font-size: 1.5rem; }
 }
 ```
+
+But on bigger screen, these header tags are bigger.
+
 Open [`http://127.0.0.1:8080/css/skeleton07.html`](http://127.0.0.1:8080/css/skeleton07.html)
 
 ```css
@@ -440,4 +456,34 @@ Open [`http://127.0.0.1:8080/css/skeleton18.html`](http://127.0.0.1:8080/css/ske
 @media (min-width: 1200px) {}
 ```
 
+This is where you would put your stuff based on screen size you need to support. Always use `min-width`. When you design a website, you design for the smallest possible device first, then start adding media queries for bigger devies. You **never** design for a desktop then adding media queries for small devices.
+
 Open [`http://127.0.0.1:8080/css/skeleton19.html`](http://127.0.0.1:8080/css/skeleton19.html)
+
+<a name="bulma" />
+
+## 1. Learn from Bulma
+
+<a name="purecss" />
+
+## 2. Learn from Pure CSS
+
+<a name="flashcards" />
+
+## 3. CSS Flashcards
+
+This is where I will collect all the things I want you to memorize.
+
+Card 01
+```css
+html {
+  font-size: 62.5%; /* font-size 1em = 10px on default browser settings */
+}
+```
+
+<a name="links" />
+
+## 4. Good CSS Websites
+
+* [cssreference.io](http://cssreference.io/)
+* [MDN CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
