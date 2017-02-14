@@ -28,6 +28,8 @@ Yep. It's mostly for me. This is how I spend my `me` time when I wake up early i
 
 Deciding to start this github project was one of the best ideas that I had. Now I have a goal. No distractions. Just type and learn. Keep moving ahead.
 
+My tutorial will have unique section called "Flash Card." I want you to memorize them as much as you can.
+
 Unlike most folks these days, I am a huge believer in "memorizing as much as possible." What's cooler when people come to your desk with a question? You googling the answer or you answering it without googling? Which scenario do you think people would walk away thinking you know your stuff?
 
 If you don't save anything in your head, are you really a smart person? For me, memorizing means I am planting seeds in my brain. And those seeds grow and grow. And I can think about those while I am walking my dog or driving to work. I can go through html tags from top to bottom. I can design a page in my head putting tags together in my head. Then it snowballs. Then ideas come. It's possible because I have things in my head.
