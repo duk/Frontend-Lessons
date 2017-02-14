@@ -24,7 +24,7 @@ And using `bootstrap` will not set you free. By doing that you are turning yours
 
 To have a logevity in software industry, you need to master your craft. I am tired of being mediocre. I am at a stage where everything seems within a reach, but not quite there. So here I am starting this tutorial.
 
-Yep. It's mostly for me. This is how I spend my `me` time when I wake up early in the morning. I get up, sneak out of bed. But I always wake my dog up. Cooper and I come down to my study, I wake my computer up then I start typing.
+Yep. It's mostly for me. This is how I spend my `me` time when I wake up early in the morning. I get up, sneak out of bed. But I always wake my dog up. Cooper and I come down to my study, I wake my computer up then I start typing. Cooper would beg for my attention for awhile. Then he gives up, climbs up to his chair and falls back to sleep.
 
 Deciding to start this github project was one of the best ideas that I had. Now I have a goal. No distractions. Just type and learn. Keeping moving ahead.
 
