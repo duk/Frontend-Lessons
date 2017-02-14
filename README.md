@@ -30,7 +30,7 @@ Deciding to start this github project was one of the best ideas that I had. Now 
 
 If you are here to get into web programming, here are some things I learned.
 
-##### 1. Programming is not that hard.
+#### 1. Programming is not that hard.
 
 Some programmers even claim that you are born with programming gift. I roll my eyes when I read a story starting with "When I was 5 years old, my Dad got me amiga blah blah...I've been programming since..."
 
@@ -38,7 +38,7 @@ Making it into NFL is hard. Making it into Major league is hard. That you have t
 
 So do not let these type of people scare you away.
 
-##### 2. Most Programming jobs are shitty and web developer(ui) jobs are even shitter.
+#### 2. Most Programming jobs are shitty and web developer(ui) jobs are even shitter.
 
 There are a lot of programming jobs are out there. But most of them are unfortunately shitty. In one book I read, it said `your job is NOT your job, it's to find a better job`
 
@@ -46,19 +46,17 @@ There is no loyalty coming from your employer. So I suggest you to always look f
 
 Unlike backend engineer, everybody can see your `work` if you are a web developer. And everyone start chiming in what color font should be, how big the box should be. So be prepare to deal with this `bike shed` problem.
 
-##### 3. People skill matters a lot more than you think.
+#### 3. People skill matters a lot more than you think.
 
 Likeability can take you further. Let's admit it. Some people are born with it. If you are not that likeable, the more reason to master your craft.
 
-##### 4. We are not curing cancer here. Take it easy.
-
-Go home at 5 and spend your time with your family. I have two kids and they grow up fast. Get your priority straight.
-
-##### 4. We are not curing cancer here. Take it easy.
+#### 4. We are not curing cancer here. Take it easy.
 
 No. The sky is not falling. Nobody is dying because your form doesn't work correctly. Take a deep breath. If all the doctors disappear today, the world is in trouble. If all the web developers disappear today, the world will be still here. Educate your project managers and your stake holders and keep reminding them that we are not curing cancer here.
 
-##### 5. Memorization is nothing to be ashamed of.
+Go home at 5 and spend your time with your family. I have two kids and they grow up fast. Get your priority straight.
+
+#### 5. Memorization is essential to mastery.
 
 Unlike most folks these days, I am a huge believer in "memorizing as much as possible." What's cooler when people come to your desk with a question? You googling the answer or you answering it without googling? Which scenario do you think people would walk away thinking you know your stuff?
 
