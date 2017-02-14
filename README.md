@@ -75,7 +75,7 @@ Here are some tips.
 2. Do not get into holy wars of this way that way. There are millions of ways to skin a cat.
 3. Always design with responsive in mind. "But this internal web app will never be used on a mobile phone. I get it. But thinking in responsive design forces you to think hard about your design. And forces you to have simpler design. The Simpler The Better.
 
-So [let's learn](https://github.com/duk/FrontendLessons/tree/master/html#html-lessons).
+So [let's learn](https://github.com/duk/Frontend-Lessons/tree/master/html#mastering-html).
 
 1. [Navbar](https://github.com/duk/FrontendLessons/tree/master/html#navbar)
 2. [Sidbar](https://github.com/duk/FrontendLessons/tree/master/html#sidebar)
