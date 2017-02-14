@@ -66,6 +66,18 @@ Here are some tips.
 
 So [let's learn](https://github.com/duk/FrontendLessons/tree/master/html#html-lessons).
 
+1. [Navbar](https://github.com/duk/FrontendLessons/tree/master/html#navbar)
+2. [Sidbar](https://github.com/duk/FrontendLessons/tree/master/html#sidebar)
+3. [Menu](https://github.com/duk/FrontendLessons/tree/master/html#menu)
+4. [Footer](https://github.com/duk/FrontendLessons/tree/master/html#footer)
+5. [Tutorials](https://github.com/duk/FrontendLessons/tree/master/html#tutorials)
+   1. [How to set up](https://github.com/duk/FrontendLessons/tree/master/html#howtosetup) 
+   2. [Add Placeholders](https://github.com/duk/FrontendLessons/tree/master/html#addplaceholder)
+   3. [Add Layouts](https://github.com/duk/FrontendLessons/tree/master/html#addlayouts)
+   4. [Add Tables](https://github.com/duk/FrontendLessons/tree/master/html#addtables)
+   5. [Add Forms](https://github.com/duk/FrontendLessons/tree/master/html#addforms)
+
+
 <a name="css" />
 
 ## Mastering CSS
@@ -79,6 +91,8 @@ When you start builing a website. Ask these questions.
 Here we will study a few popular CSS frameworks. We will go through line by line and truly understand what is happening and how each line affects styling.
 
 So [let's learn](https://github.com/duk/Frontend-Lessons/tree/master/css#mastering-css).
+
+0. [Learn from Skeleton](https://github.com/duk/Frontend-Lessons/tree/master/css#skeleton)
 
 <a name="javascript" />
 

@@ -140,6 +140,7 @@ are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 ```
+Typography is a huge part of web design. Picking a right font family can make your website look so much better. 
 
 Open [`http://127.0.0.1:8080/css/skeleton04.html`](http://127.0.0.1:8080/css/skeleton04.html)
 
