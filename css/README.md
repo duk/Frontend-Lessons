@@ -10,16 +10,16 @@ group things and memorize them. Also we will go over some popualr CSS processing
 
 ##### Table of Contents  
 
-0. [Color](#color)
-1. [Learn from Skeleton](#skeleton)
-2. [Learn from Bulma](#bulma)
-3. [Learn from Pure CSS](#purecss)
-4. [CSS Flashcards](#flashcards)
-5. [Good CSS Websites](#links)
+1. [Color](#color)
+2. [Learn from Skeleton](#skeleton)
+3. [Learn from Bulma](#bulma)
+4. [Learn from Pure CSS](#purecss)
+5. [CSS Flashcards](#flashcards)
+6. [Good CSS Websites](#links)
 
 <a name="color" />
 
-## 0. Color
+## 1. Color
 
 Most bad looking websites are because of misuse of colors. To really understand web design, you have to understand color. So we will learn about color here.
 
@@ -27,11 +27,12 @@ Here are some helpful links that I found
 
 * [Web design 101: color theory](https://webflow.com/blog/web-design-101-color-theory)
 * [A Simple Way to Understand Hue, Saturation and Luminosity](https://www.labnol.org/home/hue-saturation-luminosity/20104/)
+* [Google Material Design Color](https://material.io/guidelines/style/color.html)
 
 
 <a name="skeleton" />
 
-## 1. Learn from Skeleton
+## 2. Learn from Skeleton
 
 First thing you would notice in any type of CSS framework is that it comes with some sort of `normalizing` css library. Browsers do have built-in
 styles for html tags. So in order to be consistent across all the browsers we need to `remove` predefined styles. Think of it as erasing the
@@ -467,7 +468,7 @@ This is where you would put your stuff based on screen size you need to support.
 
 <a name="bulma" />
 
-## 2. Learn from Bulma
+## 3. Learn from Bulma
 
 Let's look at [Bulma](https://github.com/jgthms/bulma). If you go there, first thing you notice is bulma.sass file. So what is "Sass"? Sass stands for "Syntactically Awesome Style Sheets" and there are currently two dialects. One is `.sass` and the other is `scss`. 
 
@@ -949,11 +950,11 @@ $control-radius-small: $radius-small !default
 
 <a name="purecss" />
 
-## 3. Learn from Pure CSS
+## 4. Learn from Pure CSS
 
 <a name="flashcards" />
 
-## 4. CSS Flashcards
+## 5. CSS Flashcards
 
 This is where I will collect all the things I want you to memorize.
 
@@ -966,7 +967,7 @@ html {
 
 <a name="links" />
 
-## 5. Good CSS Websites
+## 6. Good CSS Websites
 
 * [cssreference.io](http://cssreference.io/)
 * [MDN CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
