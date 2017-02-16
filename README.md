@@ -103,7 +103,12 @@ Here we will study a few popular CSS frameworks. We will go through line by line
 
 So [let's learn](https://github.com/duk/Frontend-Lessons/tree/master/css#mastering-css).
 
-0. [Learn from Skeleton](https://github.com/duk/Frontend-Lessons/tree/master/css#skeleton)
+0. [Color](https://github.com/duk/Frontend-Lessons/tree/master/css#color)
+1. [Learn from Skeleton](https://github.com/duk/Frontend-Lessons/tree/master/css#skeleton)
+2. [Learn from Bulma](https://github.com/duk/Frontend-Lessons/tree/master/css#bulma)
+3. [Learn from Pure CSS](https://github.com/duk/Frontend-Lessons/tree/master/css#purecss)
+4. [CSS Flashcards](https://github.com/duk/Frontend-Lessons/tree/master/css#flashcards)
+5. [Good CSS Websites](https://github.com/duk/Frontend-Lessons/tree/master/css#links)
 
 <a name="javascript" />
 
