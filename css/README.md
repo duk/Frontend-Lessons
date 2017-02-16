@@ -450,9 +450,17 @@ Also you will see [`clear: both;`](https://developer.mozilla.org/en-US/docs/Web/
 
 This is where you would put your stuff based on screen size you need to support. Always use `min-width`. When you design a website, you design for the smallest possible device first, then start adding media queries for bigger devies. You **never** design for a desktop then adding media queries for small devices.
 
+>Sass makes CSS fun again. Sass is an extension of CSS, adding nested rules, variables, mixins, selector inheritance, and more. It's translated to well-formatted, standard CSS using the command line tool or a web-framework plugin.
+>
+>Sass has two syntaxes. The new main syntax (as of Sass 3) is known as "SCSS" (for "Sassy CSS"), and is a superset of CSS's syntax. This means that every valid CSS stylesheet is valid SCSS as well. SCSS files use the extension .scss.
+>
+>The second, older syntax is known as the indented syntax (or just "Sass"). Inspired by Haml's terseness, it's intended for people who prefer conciseness over similarity to CSS. Instead of brackets and semicolons, it uses the indentation of lines to specify blocks. Although no longer the primary syntax, the indented syntax will continue to be supported. Files in the indented syntax use the extension .sass.
+
 <a name="bulma" />
 
 ## 1. Learn from Bulma
+
+Let's look at [Bulma](https://github.com/jgthms/bulma). If you go there, first thing you notice is bulma.sass file. So what is "Sass"? Sass stands for "Syntactically Awesome Style Sheets" and there are currently two dialects. One is `.sass` and the other is `scss`. 
 
 <a name="purecss" />
 
