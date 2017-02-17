@@ -529,6 +529,7 @@ functions.sass
   @return $value
 
 ```
+`powerNumber($number, $exp): calculates the value of a number exposed to another one. Returns a number.` Best way to undesrstand a function to see how it is used. The only place this function is used in another function, `colorLuminance`
 
 `$` is how to make something variable in Sass.
 
@@ -546,7 +547,7 @@ functions.sass
     $color-rgb: map-merge($color-rgb, ($name: $value))
   @return (map-get($color-rgb, 'red') * .2126) + (map-get($color-rgb, 'green') * .7152) + (map-get($color-rgb, 'blue') * .0722)
 ```
-
+`colorLuminance($color): defines if a color is dark or light. Return a decimal number between 0 and 1 where <= 0.5 is dark and > 0.5 is light.`
 ```sass
 @function findColorInvert($color)
   @if (colorLuminance($color) > 0.55)
@@ -555,6 +556,8 @@ functions.sass
     @return #fff
 ```
 
+`findColorInvert($color): returns either 70% transparent black or 100% opaque white depending on the luminance of the color.`
+
 ```sass
 @function removeUnit($number)
   @if type-of($number) == 'number' and not unitless($number)
@@ -562,10 +565,16 @@ functions.sass
   @return $number
 ```
 
+`removeUnit($number): removes the unit of a Sass number. So "10px" becomes "10" and "3.5rem" returns "3.5". Used for string concatenation.`
+
 ```sass
 @function roundToEvenNumber($number)
   @return floor($number / 2) * 2
 ```
+
+`roundToEvenNumber($number): rounds a number to the closest but lower even one. So 23 becomes 22, and 7.5 returns 6.`
+
+The purpose of this function is to have `the delete cross` perfectly centered
 
 variable.sass
 
@@ -989,13 +998,11 @@ $control-radius-small: $radius-small !default
   font-size: $size-large
 ```
 
-```sass
-@charset "utf-8"
+<a name="bulma-base" />
 
-@import "minireset.sass"
-@import "generic.sass"
-@import "helpers.sass"
-```
+### bulma / sass / base
+
+minireset.sass
 
 ```sass
 /*! minireset.css v0.0.2 | MIT License | github.com/jgthms/minireset.css */
@@ -1080,6 +1087,8 @@ th
   padding: 0
   text-align: left
 ```
+
+generic.sass
 
 ```sass
 $body-background: $white !default
@@ -1191,6 +1200,8 @@ table
     color: $text-strong
 ```
 
+helpers.sass
+
 ```sass
 // Display
 
@@ -1299,6 +1310,2303 @@ $displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex'
 
 .is-unselectable
   +unselectable
+```
+
+<a name="bulma-elements" />
+
+### bulma / sass / elements
+
+box.sass
+
+```sass
+.box
+  +block
+  background-color: $white
+  border-radius: $radius-large
+  box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1)
+  display: block
+  padding: 1.25rem
+
+a.box
+  &:hover,
+  &:focus
+    box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px $link
+  &:active
+    box-shadow: inset 0 1px 2px rgba($black, 0.2), 0 0 0 1px $link
+```
+
+button.sass
+
+```sass
+$button: $grey-darker !default
+$button-background: $white !default
+$button-border: $grey-lighter !default
+
+$button-hover: $link-hover !default
+$button-hover-border: $link-hover-border !default
+
+$button-focus: $link-focus !default
+$button-focus-border: $link-focus-border !default
+
+$button-active: $link-active !default
+$button-active-border: $link-active-border !default
+
+$button-shadow-inset: inset 0 1px 2px rgba($black, 0.2) !default
+
+@function buttonIconSpacing($button-font-size, $icon-width)
+  // The button font-size value with no unit
+  $button-value: removeUnit($button-font-size)
+  // The rem height of the button
+  // based on a height of 2.5em
+  $button-height: 2.5rem * $button-value // rem
+  // The rem total horizontal padding of the button
+  $button-horizontal-padding: 2 * 0.75rem * $button-value // rem
+  // For the icon center to align with the button center
+  // the horizontal padding + the icon width must equal the button height
+  // $button-height = $button-horizontal-padding + $icon-width + $difference
+  $difference: $button-height - $button-horizontal-padding - $icon-width
+  @return $difference / 2
+
+=button-icon($button-font-size)
+  $small-offset: buttonIconSpacing($button-font-size, 1rem)
+  $normal-offset: buttonIconSpacing($button-font-size, 1.5rem)
+  $medium-offset: buttonIconSpacing($button-font-size, 2rem)
+  $large-offset: buttonIconSpacing($button-font-size, 3rem)
+  .icon
+    &:first-child:not(:last-child)
+      margin-left: $normal-offset
+      margin-right: $button-font-size / 2
+    &:last-child:not(:first-child)
+      margin-left: $button-font-size / 2
+      margin-right: $normal-offset
+    &:first-child:last-child
+      // The -1px is to account for the button 1px border
+      margin-left: calc(-1px + #{$normal-offset})
+      margin-right: calc(-1px + #{$normal-offset})
+    &.is-small
+      &:first-child:not(:last-child)
+        margin-left: $small-offset
+      &:last-child:not(:first-child)
+        margin-right: $small-offset
+      &:first-child:last-child
+        margin-left: calc(-1px + #{$small-offset})
+        margin-right: calc(-1px + #{$small-offset})
+    &.is-medium
+      &:first-child:not(:last-child)
+        margin-left: $medium-offset
+      &:last-child:not(:first-child)
+        margin-right: $medium-offset
+      &:first-child:last-child
+        margin-left: calc(-1px + #{$medium-offset})
+        margin-right: calc(-1px + #{$medium-offset})
+    &.is-large
+      &:first-child:not(:last-child)
+        margin-left: $large-offset
+      &:last-child:not(:first-child)
+        margin-right: $large-offset
+      &:first-child:last-child
+        margin-left: calc(-1px + #{$large-offset})
+        margin-right: calc(-1px + #{$large-offset})
+
+// The button sizes use mixins so they can be used at different breakpoints
+=button-small
+  border-radius: $radius-small
+  font-size: $size-small
+  +button-icon($size-small)
+=button-medium
+  font-size: $size-medium
+  +button-icon($size-medium)
+=button-large
+  font-size: $size-large
+  +button-icon($size-large)
+
+.button
+  +control
+  +unselectable
+  background-color: $button-background
+  border: 1px solid $button-border
+  color: $button
+  cursor: pointer
+  justify-content: center
+  padding-left: 0.75em
+  padding-right: 0.75em
+  text-align: center
+  white-space: nowrap
+  strong
+    color: inherit
+  +button-icon($size-normal)
+  // States
+  &:hover,
+  &.is-hovered
+    border-color: $button-hover-border
+    color: $button-hover
+  &:focus,
+  &.is-focused
+    border-color: $button-focus-border
+    box-shadow: 0 0 0.5em rgba($button-focus-border, 0.25)
+    color: $button-focus
+  &:active,
+  &.is-active
+    border-color: $button-active-border
+    box-shadow: $button-shadow-inset
+    color: $button-active
+  // Colors
+  &.is-link
+    background-color: transparent
+    border-color: transparent
+    color: $text
+    text-decoration: underline
+    &:hover,
+    &.is-hovered,
+    &:focus,
+    &.is-focused,
+    &:active,
+    &.is-active
+      background-color: $background
+      color: $text-strong
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.is-#{$name}
+      background-color: $color
+      border-color: transparent
+      color: $color-invert
+      &:hover,
+      &.is-hovered
+        background-color: darken($color, 2.5%)
+        border-color: transparent
+        color: $color-invert
+      &:focus,
+      &.is-focused
+        border-color: transparent
+        box-shadow: 0 0 0.5em rgba($color, 0.25)
+        color: $color-invert
+      &:active,
+      &.is-active
+        background-color: darken($color, 5%)
+        border-color: transparent
+        box-shadow: $button-shadow-inset
+        color: $color-invert
+      &.is-inverted
+        background-color: $color-invert
+        color: $color
+        &:hover
+          background-color: darken($color-invert, 5%)
+      &.is-loading
+        &:after
+          border-color: transparent transparent $color-invert $color-invert !important
+      &.is-outlined
+        background-color: transparent
+        border-color: $color
+        color: $color
+        &:hover,
+        &:focus
+          background-color: $color
+          border-color: $color
+          color: $color-invert
+        &.is-loading
+          &:after
+            border-color: transparent transparent $color $color !important
+      &.is-inverted.is-outlined
+        background-color: transparent
+        border-color: $color-invert
+        color: $color-invert
+        &:hover,
+        &:focus
+          background-color: $color-invert
+          color: $color
+  // Sizes
+  &.is-small
+    +button-small
+  &.is-medium
+    +button-medium
+  &.is-large
+    +button-large
+  // Modifiers
+  &[disabled],
+  &.is-disabled
+    opacity: 0.5
+  &.is-fullwidth
+    display: flex
+    width: 100%
+  &.is-loading
+    color: transparent !important
+    pointer-events: none
+    &:after
+      +loader
+      +center(16px)
+      position: absolute !important
+```
+content.sass
+
+```sass
+.content
+  +block
+  color: $text
+  // Inline
+  li + li
+    margin-top: 0.25em
+  // Block
+  p,
+  ol,
+  ul,
+  blockquote,
+  table
+    &:not(:last-child)
+      margin-bottom: 1em
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    color: $text-strong
+    font-weight: $weight-normal
+    line-height: 1.125
+  h1
+    font-size: 2em
+    margin-bottom: 0.5em
+    &:not(:first-child)
+      margin-top: 1em
+  h2
+    font-size: 1.75em
+    margin-bottom: 0.5714em
+    &:not(:first-child)
+      margin-top: 1.1428em
+  h3
+    font-size: 1.5em
+    margin-bottom: 0.6666em
+    &:not(:first-child)
+      margin-top: 1.3333em
+  h4
+    font-size: 1.25em
+    margin-bottom: 0.8em
+  h5
+    font-size: 1.125em
+    margin-bottom: 0.8888em
+  h6
+    font-size: 1em
+    margin-bottom: 1em
+  blockquote
+    background-color: $background
+    border-left: 5px solid $border
+    padding: 1.25em 1.5em
+  ol
+    list-style: decimal outside
+    margin-left: 2em
+    margin-right: 2em
+    margin-top: 1em
+  ul
+    list-style: disc outside
+    margin-left: 2em
+    margin-right: 2em
+    margin-top: 1em
+    ul
+      list-style-type: circle
+      margin-top: 0.5em
+      ul
+        list-style-type: square
+  table
+    width: 100%
+    td,
+    th
+      border: 1px solid $border
+      border-width: 0 0 1px
+      padding: 0.5em 0.75em
+      vertical-align: top
+    th
+      color: $text-strong
+      text-align: left
+    tr
+      &:hover
+        background-color: $background
+    thead
+      td,
+      th
+        border-width: 0 0 2px
+        color: $text-strong
+    tfoot
+      td,
+      th
+        border-width: 2px 0 0
+        color: $text-strong
+    tbody
+      tr
+        &:last-child
+          td,
+          th
+            border-bottom-width: 0
+  // Sizes
+  &.is-small
+    font-size: $size-small
+  &.is-medium
+    font-size: $size-medium
+  &.is-large
+    font-size: $size-large
+```
+
+form.sass
+```sass
+$input:                     $grey-darker !default
+$input-background:          $white !default
+$input-border:              $grey-lighter !default
+
+$input-hover:               $grey-darker !default
+$input-hover-border:        $grey-light !default
+
+$input-focus:               $grey-darker !default
+$input-focus-border:        $link !default
+
+$input-disabled:            $text-light !default
+$input-disabled-background: $background !default
+$input-disabled-border:     $background !default
+
+$input-arrow:               $link !default
+
+$input-icon:                $grey-lighter !default
+$input-icon-active:         $grey !default
+
+$input-radius:              $radius !default
+
+=input
+  +control
+  background-color: $input-background
+  border: 1px solid $input-border
+  color: $input
+  &:hover,
+  &.is-hovered
+    border-color: $input-hover-border
+  &:focus,
+  &.is-focused,
+  &:active,
+  &.is-active
+    border-color: $input-focus-border
+  &[disabled],
+  &.is-disabled
+    background-color: $input-disabled-background
+    border-color: $input-disabled-border
+    box-shadow: none
+    color: $input-disabled
+    +placeholder
+      color: rgba($input, 0.3)
+
+.input,
+.textarea
+  +input
+  box-shadow: inset 0 1px 2px rgba($black, 0.1)
+  max-width: 100%
+  width: 100%
+  &[type="search"]
+    border-radius: 290486px
+  // Colors
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    &.is-#{$name}
+      border-color: $color
+  // Sizes
+  &.is-small
+    +control-small
+  &.is-medium
+    +control-medium
+  &.is-large
+    +control-large
+  // Modifiers
+  &.is-fullwidth
+    display: block
+    width: 100%
+  &.is-inline
+    display: inline
+    width: auto
+
+.textarea
+  display: block
+  line-height: 1.25
+  max-height: 600px
+  max-width: 100%
+  min-height: 120px
+  min-width: 100%
+  padding: 10px
+  resize: vertical
+
+.checkbox,
+.radio
+  align-items: center
+  cursor: pointer
+  display: inline-flex
+  flex-wrap: wrap
+  justify-content: flex-start
+  position: relative
+  vertical-align: top
+  input
+    cursor: pointer
+    margin-right: 0.5em
+  &:hover
+    color: $input-hover
+  &.is-disabled
+    color: $input-disabled
+    pointer-events: none
+    input
+      pointer-events: none
+
+.radio
+  & + .radio
+    margin-left: 0.5em
+
+.select
+  display: inline-block
+  height: 2.5em
+  position: relative
+  vertical-align: top
+  &:after
+    +arrow($input-arrow)
+    margin-top: -0.375em
+    right: 1.125em
+    top: 50%
+    z-index: 4
+  select
+    +input
+    cursor: pointer
+    display: block
+    font-size: 1em
+    outline: none
+    padding-right: 2.5em
+    &:hover
+      border-color: $input-hover-border
+    &::ms-expand
+      display: none
+  // States
+  &:hover
+    &:after
+      border-color: $input-hover
+  // Sizes
+  &.is-small
+    +control-small
+  &.is-medium
+    +control-medium
+  &.is-large
+    +control-large
+  // Modifiers
+  &.is-fullwidth
+    width: 100%
+    select
+      width: 100%
+
+.label
+  color: $input
+  display: block
+  font-weight: bold
+  &:not(:last-child)
+    margin-bottom: 0.5em
+
+.help
+  display: block
+  font-size: $size-small
+  margin-top: 5px
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    &.is-#{$name}
+      color: $color
+
+// Containers
+
+.control-label
+  +mobile
+    margin-bottom: 0.5em
+  +tablet
+    flex-basis: 0
+    flex-grow: 1
+    flex-shrink: 0
+    margin-right: 1.5em
+    padding-top: 0.5em
+    text-align: right
+
+.control
+  position: relative
+  text-align: left
+  &:not(:last-child)
+    margin-bottom: 0.75rem
+  // Modifiers
+  &.has-addons
+    display: flex
+    justify-content: flex-start
+    .button,
+    .input,
+    .select
+      border-radius: 0
+      margin-right: -1px
+      width: auto
+      &:hover
+        z-index: 2
+      &:focus,
+      &:active
+        z-index: 3
+      &:first-child
+        border-radius: $input-radius 0 0 $input-radius
+        select
+          border-radius: $input-radius 0 0 $input-radius
+      &:last-child
+        border-radius: 0 $input-radius $input-radius 0
+        select
+          border-radius: 0 $input-radius $input-radius 0
+      &.is-expanded
+        flex-grow: 1
+        flex-shrink: 0
+    .select select
+      &:hover
+        z-index: 2
+      &:focus,
+      &:active
+        z-index: 3
+    &.has-addons-centered
+      justify-content: center
+    &.has-addons-right
+      justify-content: flex-end
+    &.has-addons-fullwidth
+      .button,
+      .input,
+      .select
+        flex-grow: 1
+        flex-shrink: 0
+  &.has-icon
+    .icon
+      color: $input-icon
+      pointer-events: none
+      position: absolute
+      top: ($size-normal * 2.5) / 2
+      z-index: 4
+    .input
+      &:focus
+        & + .icon
+          color: $input-icon-active
+      &.is-small
+        & + .icon
+          top: ($size-small * 2.5) / 2
+      &.is-medium
+        & + .icon
+          top: ($size-medium * 2.5) / 2
+      &.is-large
+        & + .icon
+          top: ($size-large * 2.5) / 2
+    &:not(.has-icon-right)
+      .icon
+        left: ($size-normal * 2.5) / 2
+        transform: translateX(-50%) translateY(-50%)
+      .input
+        padding-left: 2.5em
+        &.is-small
+          & + .icon
+            left: ($size-small * 2.5) / 2
+        &.is-medium
+          & + .icon
+            left: ($size-medium * 2.5) / 2
+        &.is-large
+          & + .icon
+            left: ($size-large * 2.5) / 2
+    &.has-icon-right
+      .icon
+        right: ($size-normal * 2.5) / 2
+        transform: translateX(50%) translateY(-50%)
+      .input
+        padding-right: 2.5em
+        &.is-small
+          & + .icon
+            right: ($size-small * 2.5) / 2
+        &.is-medium
+          & + .icon
+            right: ($size-medium * 2.5) / 2
+        &.is-large
+          & + .icon
+            right: ($size-large * 2.5) / 2
+  &.is-grouped
+    display: flex
+    justify-content: flex-start
+    & > .control
+      flex-basis: 0
+      flex-shrink: 0
+      &:not(:last-child)
+        margin-bottom: 0
+        margin-right: 0.75rem
+      &.is-expanded
+        flex-grow: 1
+        flex-shrink: 1
+    &.is-grouped-centered
+      justify-content: center
+    &.is-grouped-right
+      justify-content: flex-end
+  &.is-horizontal
+    +tablet
+      display: flex
+      & > .control
+        display: flex
+        flex-basis: 0
+        flex-grow: 5
+        flex-shrink: 1
+  &.is-loading
+    &:after
+      +loader
+      position: absolute !important
+      right: 0.75em
+      top: 0.75em
+```
+
+icon.sass
+
+```sass
+.icon
+  +fa(21px, 1.5rem)
+  .fa
+    font-size: inherit
+    line-height: inherit
+  // Sizes
+  &.is-small
+    +fa(14px, 1rem)
+  &.is-medium
+    +fa(28px, 2rem)
+  &.is-large
+    +fa(42px, 3rem)
+```
+image.sass
+
+```sass
+$dimensions: 16 24 32 48 64 96 128
+
+.image
+  display: block
+  position: relative
+  img
+    display: block
+    height: auto
+    width: 100%
+  // Ratio
+  &.is-square,
+  &.is-1by1,
+  &.is-4by3,
+  &.is-3by2,
+  &.is-16by9,
+  &.is-2by1
+    img
+      +overlay
+      height: 100%
+      width: 100%
+  &.is-square,
+  &.is-1by1
+    padding-top: 100%
+  &.is-4by3
+    padding-top: 75%
+  &.is-3by2
+    padding-top: 66.6666%
+  &.is-16by9
+    padding-top: 56.25%
+  &.is-2by1
+    padding-top: 50%
+  // Sizes
+  @each $dimension in $dimensions
+    &.is-#{$dimension}x#{$dimension}
+      height: $dimension * 1px
+      width: $dimension * 1px
+```
+
+notification.sass
+
+```sass
+.notification
+  +block
+  background-color: $background
+  border-radius: $radius
+  padding: 1.25rem 2.5rem 1.25rem 1.5rem
+  position: relative
+  code,
+  pre
+    background: $white
+  pre code
+    background: transparent
+  .delete
+    position: absolute
+    right: 0.5em
+    top: 0.5em
+  .title,
+  .subtitle,
+  .content
+    color: inherit
+  // Colors
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.is-#{$name}
+      background-color: $color
+      color: $color-invert
+```
+
+other.sass
+
+```sass
+.block
+  +block
+
+.container
+  position: relative
+  +desktop
+    margin: 0 auto
+    max-width: $desktop - 40px // 960px
+    // Modifiers
+    &.is-fluid
+      margin: 0 20px
+      max-width: none
+  +widescreen
+    max-width: $widescreen - 40px // 1152px
+
+.delete
+  +delete
+
+.fa
+  font-size: 21px
+  text-align: center
+  vertical-align: top
+
+.heading
+  display: block
+  font-size: 11px
+  letter-spacing: 1px
+  margin-bottom: 5px
+  text-transform: uppercase
+
+.highlight
+  +block
+  font-weight: $weight-normal
+  max-width: 100%
+  overflow: hidden
+  padding: 0
+  pre
+    overflow: auto
+    max-width: 100%
+
+.loader
+  +loader
+
+.number
+  align-items: center
+  background-color: $background
+  border-radius: 290486px
+  display: inline-flex
+  font-size: $size-medium
+  height: 2em
+  justify-content: center
+  margin-right: 1.5rem
+  min-width: 2.5em
+  padding: 0.25rem 0.5rem
+  text-align: center
+  vertical-align: top
+```
+
+progress.sass
+
+```sass
+.progress
+  +block
+  -moz-appearance: none
+  -webkit-appearance: none
+  border: none
+  border-radius: 290486px
+  display: block
+  height: $size-normal
+  overflow: hidden
+  padding: 0
+  width: 100%
+  &::-webkit-progress-bar
+    background-color: $border
+  &::-webkit-progress-value
+    background-color: $text
+  &::-moz-progress-bar
+    background-color: $text
+  // Colors
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    &.is-#{$name}
+      &::-webkit-progress-value
+        background-color: $color
+      &::-moz-progress-bar
+        background-color: $color
+  // Sizes
+  &.is-small
+    height: $size-small
+  &.is-medium
+    height: $size-medium
+  &.is-large
+    height: $size-large
+```
+
+table.sass
+
+```sass
+$table:                           $grey-darker !default
+$table-background:                $white !default
+$table-border:                    $grey-lighter !default
+
+$table-head:                      $grey !default
+
+$table-row-hover-background:      $white-bis !default
+$table-row-even-background:       $white-bis !default
+$table-row-even-hover-background: $white-ter !default
+
+.table
+  background-color: $table-background
+  color: $table
+  margin-bottom: 1.5rem
+  width: 100%
+  td,
+  th
+    border: 1px solid $table-border
+    border-width: 0 0 1px
+    padding: 0.5em 0.75em
+    vertical-align: top
+    // Modifiers
+    &.is-narrow
+      white-space: nowrap
+      width: 1%
+  th
+    color: $text-strong
+    text-align: left
+  tr
+    &:hover
+      background-color: $table-row-hover-background
+  thead
+    td,
+    th
+      border-width: 0 0 2px
+      color: $table-head
+  tfoot
+    td,
+    th
+      border-width: 2px 0 0
+      color: $table-head
+  tbody
+    tr
+      &:last-child
+        td,
+        th
+          border-bottom-width: 0
+  // Modifiers
+  &.is-bordered
+    td,
+    th
+      border-width: 1px
+    tr
+      &:last-child
+        td,
+        th
+          border-bottom-width: 1px
+  &.is-narrow
+    td,
+    th
+      padding: 0.25em 0.5em
+  &.is-striped
+    tbody
+      tr
+        &:nth-child(even)
+          background-color: $table-row-even-background
+          &:hover
+            background-color: $table-row-even-hover-background
+```
+
+tag.sass
+
+```sass
+.tag
+  align-items: center
+  background-color: $background
+  border-radius: 290486px
+  color: $text
+  display: inline-flex
+  font-size: $size-small
+  height: 2em
+  justify-content: center
+  line-height: 1.5
+  padding-left: 0.875em
+  padding-right: 0.875em
+  vertical-align: top
+  white-space: nowrap
+  .delete
+    margin-left: 0.25em
+    margin-right: -0.5em
+  // Colors
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.is-#{$name}
+      background-color: $color
+      color: $color-invert
+  // Sizes
+  &.is-medium
+    font-size: $size-normal
+  &.is-large
+    font-size: $size-medium
+```
+
+title.sass
+
+```sass
+$title:             $grey-darker !default
+$title-size:        $size-3 !default
+$title-weight:      $weight-light !default
+$title-weight-bold: $weight-semibold !default
+
+$subtitle:          $grey-dark !default
+$subtitle-size:     $size-5 !default
+$subtitle-strong:   $grey-darker !default
+$subtitle-weight:   $weight-light !default
+
+.title,
+.subtitle
+  +block
+  word-break: break-word
+  em,
+  span
+    font-weight: $title-weight
+  strong
+    font-weight: $title-weight-bold
+  .tag
+    vertical-align: middle
+
+.title
+  color: $title
+  font-size: $title-size
+  font-weight: $title-weight
+  line-height: 1.125
+  strong
+    color: inherit
+  & + .highlight
+    margin-top: -0.75rem
+  & + .subtitle
+    margin-top: -1.25rem
+  // Colors
+  @each $size in $sizes
+    $i: index($sizes, $size)
+    &.is-#{$i}
+      font-size: $size
+
+.subtitle
+  color: $subtitle
+  font-size: $subtitle-size
+  font-weight: $subtitle-weight
+  line-height: 1.25
+  strong
+    color: $subtitle-strong
+  & + .title
+    margin-top: -1.5rem
+  // Colors
+  @each $size in $sizes
+    $i: index($sizes, $size)
+    &.is-#{$i}
+      font-size: $size
+```
+<a name="bulma-components" />
+
+### bulma / sass / components
+
+```sass
+.card-header
+  align-items: stretch
+  box-shadow: 0 1px 2px rgba($black, 0.1)
+  display: flex
+
+.card-header-title
+  align-items: center
+  color: $text-strong
+  display: flex
+  flex-grow: 1
+  font-weight: $weight-bold
+  padding: 0.75rem
+
+.card-header-icon
+  align-items: center
+  cursor: pointer
+  display: flex
+  justify-content: center
+  padding: 0.75rem
+
+.card-image
+  display: block
+  position: relative
+
+.card-content
+  padding: 1.5rem
+  .title + .subtitle
+    margin-top: -1.5rem
+
+.card-footer
+  border-top: 1px solid $border
+  align-items: stretch
+  display: flex
+
+.card-footer-item
+  align-items: center
+  display: flex
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 0
+  justify-content: center
+  padding: 0.75rem
+  &:not(:last-child)
+    border-right: 1px solid $border
+
+.card
+  background-color: $white
+  box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1)
+  color: $text
+  max-width: 100%
+  position: relative
+  .media:not(:last-child)
+    margin-bottom: 0.75rem
+```
+
+level.sass
+
+```sass
+.level-item
+  align-items: center
+  display: flex
+  flex-basis: auto
+  flex-grow: 0
+  flex-shrink: 0
+  justify-content: center
+  .title,
+  .subtitle
+    margin-bottom: 0
+  // Responsiveness
+  +mobile
+    &:not(:last-child)
+      margin-bottom: 0.75rem
+
+.level-left,
+.level-right
+  flex-basis: auto
+  flex-grow: 0
+  flex-shrink: 0
+  .level-item
+    &:not(:last-child)
+      margin-right: 0.75rem
+    // Modifiers
+    &.is-flexible
+      flex-grow: 1
+
+.level-left
+  align-items: center
+  justify-content: flex-start
+  // Responsiveness
+  +mobile
+    & + .level-right
+      margin-top: 1.5rem
+  +tablet
+    display: flex
+
+.level-right
+  align-items: center
+  justify-content: flex-end
+  // Responsiveness
+  +tablet
+    display: flex
+
+.level
+  +block
+  align-items: center
+  justify-content: space-between
+  code
+    border-radius: $radius
+  img
+    display: inline-block
+    vertical-align: top
+  // Modifiers
+  &.is-mobile
+    display: flex
+    & > .level-item
+      &:not(:last-child)
+        margin-bottom: 0
+      &:not(.is-narrow)
+        flex-grow: 1
+  // Responsiveness
+  +tablet
+    display: flex
+    & > .level-item
+      &:not(.is-narrow)
+        flex-grow: 1
+```
+
+media.sass
+
+```sass
+.media-left,
+.media-right
+  flex-basis: auto
+  flex-grow: 0
+  flex-shrink: 0
+
+.media-left
+  margin-right: 1rem
+
+.media-right
+  margin-left: 1rem
+
+.media-content
+  flex-basis: auto
+  flex-grow: 1
+  flex-shrink: 1
+  text-align: left
+
+.media
+  align-items: flex-start
+  display: flex
+  text-align: left
+  .content:not(:last-child)
+    margin-bottom: 0.75rem
+  .media
+    border-top: 1px solid rgba($border, 0.5)
+    display: flex
+    padding-top: 0.75rem
+    .content:not(:last-child),
+    .control:not(:last-child)
+      margin-bottom: 0.5rem
+    .media
+      padding-top: 0.5rem
+      & + .media
+        margin-top: 0.5rem
+  & + .media
+    border-top: 1px solid rgba($border, 0.5)
+    margin-top: 1rem
+    padding-top: 1rem
+  // Sizes
+  &.is-large
+    & + .media
+      margin-top: 1.5rem
+      padding-top: 1.5rem
+```
+
+menu.sass
+
+```sass
+.menu
+  font-size: $size-normal
+
+.menu-list
+  line-height: 1.25
+  a
+    border-radius: $radius-small
+    color: $text
+    display: block
+    padding: 0.5em 0.75em
+    &:hover
+      background-color: $background
+      color: $link
+    // Modifiers
+    &.is-active
+      background-color: $link
+      color: $link-invert
+  li
+    ul
+      border-left: 1px solid $border
+      margin: 0.75em
+      padding-left: 0.75em
+
+.menu-label
+  color: $text-light
+  font-size: 0.8em
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  &:not(:first-child)
+    margin-top: 1em
+  &:not(:last-child)
+    margin-bottom: 1em
+```
+
+message.sass
+
+```sass
+.message
+  +block
+  background-color: $background
+  border-radius: $radius
+  font-size: $size-normal
+  // Colors
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    $color-lightning: max((100% - lightness($color)) - 2%, 0%)
+    $color-luminance: colorLuminance($color)
+    $darken-percentage: $color-luminance * 70%
+    $desaturate-percentage: $color-luminance * 30%
+    &.is-#{$name}
+      background-color: lighten($color, $color-lightning)
+      .message-header
+        background-color: $color
+        color: $color-invert
+      .message-body
+        border-color: $color
+        color: desaturate(darken($color, $darken-percentage), $desaturate-percentage)
+
+.message-header
+  align-items: center
+  background-color: $text
+  border-radius: $radius $radius 0 0
+  color: $text-invert
+  display: flex
+  justify-content: space-between
+  line-height: 1.25
+  padding: 0.5em 0.75em
+  position: relative
+  a,
+  strong
+    color: inherit
+  a
+    text-decoration: underline
+  .delete
+    flex-grow: 0
+    flex-shrink: 0
+    margin-left: 0.75em
+  & + .message-body
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+    border-top: none
+
+.message-body
+  border: 1px solid $border
+  border-radius: $radius
+  color: $text
+  padding: 1em 1.25em
+  a,
+  strong
+    color: inherit
+  a
+    text-decoration: underline
+  code,
+  pre
+    background: $white
+  pre code
+    background: transparent
+```
+
+modal.sass
+
+```sass
+.modal-background
+  +overlay
+  background-color: rgba($black, 0.86)
+
+.modal-content,
+.modal-card
+  margin: 0 20px
+  max-height: calc(100vh - 160px)
+  overflow: auto
+  position: relative
+  width: 100%
+  // Responsiveness
+  +tablet
+    margin: 0 auto
+    max-height: calc(100vh - 40px)
+    width: 640px
+
+.modal-close
+  +delete
+  background: none
+  height: 40px
+  position: fixed
+  right: 20px
+  top: 20px
+  width: 40px
+
+.modal-card
+  display: flex
+  flex-direction: column
+  max-height: calc(100vh - 40px)
+  overflow: hidden
+
+.modal-card-head,
+.modal-card-foot
+  align-items: center
+  background-color: $background
+  display: flex
+  flex-shrink: 0
+  justify-content: flex-start
+  padding: 20px
+  position: relative
+
+.modal-card-head
+  border-bottom: 1px solid $border
+  border-top-left-radius: $radius-large
+  border-top-right-radius: $radius-large
+
+.modal-card-title
+  color: $text-strong
+  flex-grow: 1
+  flex-shrink: 0
+  font-size: $size-4
+  line-height: 1
+
+.modal-card-foot
+  border-bottom-left-radius: $radius-large
+  border-bottom-right-radius: $radius-large
+  border-top: 1px solid $border
+  .button
+    &:not(:last-child)
+      margin-right: 10px
+
+.modal-card-body
+  +overflow-touch
+  background-color: $white
+  flex-grow: 1
+  flex-shrink: 1
+  overflow: auto
+  padding: 20px
+
+.modal
+  +overlay
+  align-items: center
+  display: none
+  justify-content: center
+  overflow: hidden
+  position: fixed
+  z-index: 1986
+  // Modifiers
+  &.is-active
+    display: flex
+```
+
+nav.sass
+
+```sass
+$nav-height: 3.5rem !default
+
+// Components
+
+.nav-toggle
+  +hamburger($nav-height)
+  // Responsiveness
+  +tablet
+    display: none
+
+.nav-item
+  align-items: center
+  display: flex
+  flex-grow: 0
+  flex-shrink: 0
+  font-size: $size-normal
+  justify-content: center
+  padding: 0.5rem 0.75rem
+  a
+    flex-grow: 1
+    flex-shrink: 0
+  img
+    max-height: 1.75rem
+  .button + .button
+    margin-left: 0.75rem
+  .tag
+    &:first-child:not(:last-child)
+      margin-right: 0.5rem
+    &:last-child:not(:first-child)
+      margin-left: 0.5rem
+  // Responsiveness
+  +mobile
+    justify-content: flex-start
+
+.nav-item a,
+a.nav-item
+  color: $text-light
+  &:hover
+    color: $link-hover
+  // Modifiers
+  &.is-active
+    color: $link-active
+  &.is-tab
+    border-bottom: 1px solid transparent
+    border-top: 1px solid transparent
+    padding-bottom: calc(0.5rem - 1px)
+    padding-left: 1rem
+    padding-right: 1rem
+    padding-top: calc(0.5rem - 1px)
+    &:hover
+      border-bottom-color: $primary
+      border-top-color: transparent
+    &.is-active
+      border-bottom: 3px solid $primary
+      color: $primary
+      padding-bottom: calc(0.5rem - 3px)
+  // Responsiveness
+  +desktop
+    &.is-brand
+      padding-left: 0
+
+// Containers
+
+.nav-menu
+  // Responsiveness
+  +mobile
+    background-color: $white
+    box-shadow: 0 4px 7px rgba($black, 0.1)
+    left: 0
+    display: none
+    right: 0
+    top: 100%
+    position: absolute
+    .nav-item
+      border-top: 1px solid rgba($border, 0.5)
+      padding: 0.75rem
+    &.is-active
+      display: block
+  +tablet-only
+    padding-right: 1.5rem
+
+
+.nav-left,
+.nav-right
+  align-items: stretch
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 0
+
+.nav-left
+  display: flex
+  justify-content: flex-start
+  overflow: hidden
+  overflow-x: auto
+  white-space: nowrap
+
+.nav-center
+  align-items: stretch
+  display: flex
+  flex-grow: 0
+  flex-shrink: 0
+  justify-content: center
+  margin-left: auto
+  margin-right: auto
+
+.nav-right
+  justify-content: flex-end
+  // Responsiveness
+  +tablet
+    display: flex
+
+// Main container
+
+.nav
+  align-items: stretch
+  background-color: $white
+  display: flex
+  min-height: $nav-height
+  position: relative
+  text-align: center
+  z-index: 2
+  & > .container
+    align-items: stretch
+    display: flex
+    min-height: $nav-height
+    width: 100%
+  // Modifiers
+  &.has-shadow
+    box-shadow: 0 2px 3px rgba($black, 0.1)
+```
+
+pagination.sass
+
+```sass
+$pagination: $grey-darker !default
+$pagination-background: $white !default
+$pagination-border: $grey-lighter !default
+
+$pagination-hover: $link-hover !default
+$pagination-hover-border: $link-hover-border !default
+
+$pagination-focus: $link-focus !default
+$pagination-focus-border: $link-focus-border !default
+
+$pagination-active: $link-active !default
+$pagination-active-border: $link-active-border !default
+
+$pagination-disabled: $grey !default
+$pagination-disabled-background: $grey-lighter !default
+$pagination-disabled-border: $grey-lighter !default
+
+$pagination-current: $link-invert !default
+$pagination-current-background: $link !default
+$pagination-current-border: $link !default
+
+$pagination-ellipsis: $grey-light !default
+
+$pagination-shadow-inset: inset 0 1px 2px rgba($black, 0.2)
+
+.pagination,
+.pagination-list
+  align-items: center
+  display: flex
+  justify-content: center
+  text-align: center
+
+.pagination-previous,
+.pagination-next,
+.pagination-link,
+.pagination-ellipsis
+  +control
+  +unselectable
+  font-size: 0.875rem
+  padding-left: 0.5em
+  padding-right: 0.5em
+  justify-content: center
+  text-align: center
+
+.pagination-previous,
+.pagination-next,
+.pagination-link
+  border: 1px solid $pagination-border
+  min-width: 2.5em
+  &:hover
+    border-color: $pagination-hover-border
+    color: $pagination-hover
+  &:focus
+    border-color: $pagination-focus-border
+  &:active
+    box-shadow: $pagination-shadow-inset
+  &[disabled],
+  &.is-disabled
+    background: $pagination-disabled-background
+    color: $pagination-disabled
+    opacity: 0.5
+    pointer-events: none
+
+.pagination-previous,
+.pagination-next
+  padding-left: 0.75em
+  padding-right: 0.75em
+
+.pagination-link
+  &.is-current
+    background-color: $pagination-current-background
+    border-color: $pagination-current-border
+    color: $pagination-current
+
+.pagination-ellipsis
+  color: $pagination-ellipsis
+  pointer-events: none
+
+.pagination-list
+  li
+    &:not(:first-child)
+      margin-left: 0.375rem
+
++mobile
+  .pagination
+    flex-wrap: wrap
+  .pagination-previous,
+  .pagination-next
+    flex-grow: 1
+    flex-shrink: 1
+    width: calc(50% - 0.375rem)
+  .pagination-next
+    margin-left: 0.75rem
+  .pagination-list
+    margin-top: 0.75rem
+    li
+      flex-grow: 1
+      flex-shrink: 1
+
++tablet
+  .pagination-list
+    flex-grow: 1
+    flex-shrink: 1
+    justify-content: flex-start
+    order: 1
+  .pagination-previous,
+  .pagination-next
+    margin-left: 0.75rem
+  .pagination-previous
+    order: 2
+  .pagination-next
+    order: 3
+  .pagination
+    justify-content: space-between
+    &.is-centered
+      .pagination-previous
+        margin-left: 0
+        order: 1
+      .pagination-list
+        justify-content: center
+        order: 2
+      .pagination-next
+        order: 3
+    &.is-right
+      .pagination-previous
+        margin-left: 0
+        order: 1
+      .pagination-next
+        order: 2
+        margin-right: 0.75rem
+      .pagination-list
+        justify-content: flex-end
+        order: 3
+```
+
+panel.sass
+
+```sass
+.panel
+  font-size: $size-normal
+  &:not(:last-child)
+    margin-bottom: 1.5rem
+
+.panel-heading,
+.panel-tabs,
+.panel-block
+  border-bottom: 1px solid $border
+  border-left: 1px solid $border
+  border-right: 1px solid $border
+  &:first-child
+    border-top: 1px solid $border
+
+.panel-heading
+  background-color: $background
+  border-radius: $radius $radius 0 0
+  color: $text-strong
+  font-size: 1.25em
+  font-weight: $weight-light
+  line-height: 1.25
+  padding: 0.5em 0.75em
+
+.panel-tabs
+  align-items: flex-end
+  display: flex
+  font-size: 0.875em
+  justify-content: center
+  a
+    border-bottom: 1px solid $border
+    margin-bottom: -1px
+    padding: 0.5em
+    // Modifiers
+    &.is-active
+      border-bottom-color: $link-active-border
+      color: $link-active
+
+.panel-list
+  a
+    color: $text
+    &:hover
+      color: $link
+
+.panel-block
+  align-items: center
+  color: $text-strong
+  display: flex
+  justify-content: flex-start
+  padding: 0.5em 0.75em
+  input[type="checkbox"]
+    margin-right: 0.75em
+  & > .control
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+  &.is-active
+    border-left-color: $link
+    color: $link-active
+    .panel-icon
+      color: $link
+
+a.panel-block,
+label.panel-block
+  cursor: pointer
+  &:hover
+    background-color: $background
+
+.panel-icon
+  +fa(14px, 1em)
+  color: $text-light
+  margin-right: 0.75em
+  .fa
+    font-size: inherit
+    line-height: inherit
+```
+
+tab.sass
+
+```sass
+.tabs
+  +block
+  +unselectable
+  align-items: stretch
+  display: flex
+  font-size: $size-normal
+  justify-content: space-between
+  overflow: hidden
+  overflow-x: auto
+  white-space: nowrap
+  a
+    align-items: center
+    border-bottom: 1px solid $border
+    color: $text
+    display: flex
+    justify-content: center
+    margin-bottom: -1px
+    padding: 0.5em 1em
+    vertical-align: top
+    &:hover
+      border-bottom-color: $text-strong
+      color: $text-strong
+  li
+    display: block
+    &.is-active
+      a
+        border-bottom-color: $primary
+        color: $primary
+  ul
+    align-items: center
+    border-bottom: 1px solid $border
+    display: flex
+    flex-grow: 1
+    flex-shrink: 0
+    justify-content: flex-start
+    &.is-left
+      padding-right: 0.75em
+    &.is-center
+      flex: none
+      justify-content: center
+      padding-left: 0.75em
+      padding-right: 0.75em
+    &.is-right
+      justify-content: flex-end
+      padding-left: 0.75em
+  .icon
+    &:first-child
+      margin-right: 0.5em
+    &:last-child
+      margin-left: 0.5em
+  // Alignment
+  &.is-centered
+    ul
+      justify-content: center
+  &.is-right
+    ul
+      justify-content: flex-end
+  // Styles
+  &.is-boxed
+    a
+      border: 1px solid transparent
+      border-radius: $radius $radius 0 0
+      &:hover
+        background-color: $background
+        border-bottom-color: $border
+    li
+      &.is-active
+        a
+          background-color: $white
+          border-color: $border
+          border-bottom-color: transparent !important
+  &.is-fullwidth
+    li
+      flex-grow: 1
+      flex-shrink: 0
+  &.is-toggle
+    a
+      border: 1px solid $border
+      margin-bottom: 0
+      position: relative
+      &:hover
+        background-color: $background
+        border-color: $border-hover
+        z-index: 2
+    li
+      & + li
+        margin-left: -1px
+      &:first-child a
+        border-radius: $radius 0 0 $radius
+      &:last-child a
+        border-radius: 0 $radius $radius 0
+      &.is-active
+        a
+          background-color: $primary
+          border-color: $primary
+          color: $primary-invert
+          z-index: 1
+    ul
+      border-bottom: none
+  // Sizes
+  &.is-small
+    font-size: $size-small
+  &.is-medium
+    font-size: $size-medium
+  &.is-large
+    font-size: $size-large
+```
+
+<a name="bulma-grid" />
+
+### bulma / sass / grid
+
+columns.sass
+
+```sass
+.column
+  display: block
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 1
+  padding: 0.75rem
+  .columns.is-mobile > &.is-narrow
+    flex: none
+  .columns.is-mobile > &.is-full
+    flex: none
+    width: 100%
+  .columns.is-mobile > &.is-three-quarters
+    flex: none
+    width: 75%
+  .columns.is-mobile > &.is-two-thirds
+    flex: none
+    width: 66.6666%
+  .columns.is-mobile > &.is-half
+    flex: none
+    width: 50%
+  .columns.is-mobile > &.is-one-third
+    flex: none
+    width: 33.3333%
+  .columns.is-mobile > &.is-one-quarter
+    flex: none
+    width: 25%
+  .columns.is-mobile > &.is-offset-three-quarters
+    margin-left: 75%
+  .columns.is-mobile > &.is-offset-two-thirds
+    margin-left: 66.6666%
+  .columns.is-mobile > &.is-offset-half
+    margin-left: 50%
+  .columns.is-mobile > &.is-offset-one-third
+    margin-left: 33.3333%
+  .columns.is-mobile > &.is-offset-one-quarter
+    margin-left: 25%
+  @for $i from 1 through 12
+    .columns.is-mobile > &.is-#{$i}
+      flex: none
+      width: ($i / 12) * 100%
+    .columns.is-mobile > &.is-offset-#{$i}
+      margin-left: ($i / 12) * 100%
+  +mobile
+    &.is-narrow-mobile
+      flex: none
+    &.is-full-mobile
+      flex: none
+      width: 100%
+    &.is-three-quarters-mobile
+      flex: none
+      width: 75%
+    &.is-two-thirds-mobile
+      flex: none
+      width: 66.6666%
+    &.is-half-mobile
+      flex: none
+      width: 50%
+    &.is-one-third-mobile
+      flex: none
+      width: 33.3333%
+    &.is-one-quarter-mobile
+      flex: none
+      width: 25%
+    &.is-offset-three-quarters-mobile
+      margin-left: 75%
+    &.is-offset-two-thirds-mobile
+      margin-left: 66.6666%
+    &.is-offset-half-mobile
+      margin-left: 50%
+    &.is-offset-one-third-mobile
+      margin-left: 33.3333%
+    &.is-offset-one-quarter-mobile
+      margin-left: 25%
+    @for $i from 1 through 12
+      &.is-#{$i}-mobile
+        flex: none
+        width: ($i / 12) * 100%
+      &.is-offset-#{$i}-mobile
+        margin-left: ($i / 12) * 100%
+  +tablet
+    &.is-narrow,
+    &.is-narrow-tablet
+      flex: none
+    &.is-full,
+    &.is-full-tablet
+      flex: none
+      width: 100%
+    &.is-three-quarters,
+    &.is-three-quarters-tablet
+      flex: none
+      width: 75%
+    &.is-two-thirds,
+    &.is-two-thirds-tablet
+      flex: none
+      width: 66.6666%
+    &.is-half,
+    &.is-half-tablet
+      flex: none
+      width: 50%
+    &.is-one-third,
+    &.is-one-third-tablet
+      flex: none
+      width: 33.3333%
+    &.is-one-quarter,
+    &.is-one-quarter-tablet
+      flex: none
+      width: 25%
+    &.is-offset-three-quarters,
+    &.is-offset-three-quarters-tablet
+      margin-left: 75%
+    &.is-offset-two-thirds,
+    &.is-offset-two-thirds-tablet
+      margin-left: 66.6666%
+    &.is-offset-half,
+    &.is-offset-half-tablet
+      margin-left: 50%
+    &.is-offset-one-third,
+    &.is-offset-one-third-tablet
+      margin-left: 33.3333%
+    &.is-offset-one-quarter,
+    &.is-offset-one-quarter-tablet
+      margin-left: 25%
+    @for $i from 1 through 12
+      &.is-#{$i},
+      &.is-#{$i}-tablet
+        flex: none
+        width: ($i / 12) * 100%
+      &.is-offset-#{$i},
+      &.is-offset-#{$i}-tablet
+        margin-left: ($i / 12) * 100%
+  +desktop
+    &.is-narrow-desktop
+      flex: none
+    &.is-full-desktop
+      flex: none
+      width: 100%
+    &.is-three-quarters-desktop
+      flex: none
+      width: 75%
+    &.is-two-thirds-desktop
+      flex: none
+      width: 66.6666%
+    &.is-half-desktop
+      flex: none
+      width: 50%
+    &.is-one-third-desktop
+      flex: none
+      width: 33.3333%
+    &.is-one-quarter-desktop
+      flex: none
+      width: 25%
+    &.is-offset-three-quarters-desktop
+      margin-left: 75%
+    &.is-offset-two-thirds-desktop
+      margin-left: 66.6666%
+    &.is-offset-half-desktop
+      margin-left: 50%
+    &.is-offset-one-third-desktop
+      margin-left: 33.3333%
+    &.is-offset-one-quarter-desktop
+      margin-left: 25%
+    @for $i from 1 through 12
+      &.is-#{$i}-desktop
+        flex: none
+        width: ($i / 12) * 100%
+      &.is-offset-#{$i}-desktop
+        margin-left: ($i / 12) * 100%
+  +widescreen
+    &.is-narrow-widescreen
+      flex: none
+    &.is-full-widescreen
+      flex: none
+      width: 100%
+    &.is-three-quarters-widescreen
+      flex: none
+      width: 75%
+    &.is-two-thirds-widescreen
+      flex: none
+      width: 66.6666%
+    &.is-half-widescreen
+      flex: none
+      width: 50%
+    &.is-one-third-widescreen
+      flex: none
+      width: 33.3333%
+    &.is-one-quarter-widescreen
+      flex: none
+      width: 25%
+    &.is-offset-three-quarters-widescreen
+      margin-left: 75%
+    &.is-offset-two-thirds-widescreen
+      margin-left: 66.6666%
+    &.is-offset-half-widescreen
+      margin-left: 50%
+    &.is-offset-one-third-widescreen
+      margin-left: 33.3333%
+    &.is-offset-one-quarter-widescreen
+      margin-left: 25%
+    @for $i from 1 through 12
+      &.is-#{$i}-widescreen
+        flex: none
+        width: ($i / 12) * 100%
+      &.is-offset-#{$i}-widescreen
+        margin-left: ($i / 12) * 100%
+
+.columns
+  margin-left: -0.75rem
+  margin-right: -0.75rem
+  margin-top: -0.75rem
+  &:last-child
+    margin-bottom: -0.75rem
+  &:not(:last-child)
+    margin-bottom: 0.75rem
+  // Modifiers
+  &.is-centered
+    justify-content: center
+  &.is-gapless
+    margin-left: 0
+    margin-right: 0
+    margin-top: 0
+    &:last-child
+      margin-bottom: 0
+    &:not(:last-child)
+      margin-bottom: 1.5rem
+    & > .column
+      margin: 0
+      padding: 0
+  &.is-grid
+    // Responsiveness
+    +tablet
+      flex-wrap: wrap
+      & > .column
+        max-width: 33.3333%
+        padding: 0.75rem
+        width: 33.3333%
+        & + .column
+          margin-left: 0
+  &.is-mobile
+    display: flex
+  &.is-multiline
+    flex-wrap: wrap
+  &.is-vcentered
+    align-items: center
+  // Responsiveness
+  +tablet
+    &:not(.is-desktop)
+      display: flex
+  +desktop
+    // Modifiers
+    &.is-desktop
+      display: flex
+```
+
+tiles.sass
+
+```sass
+.tile
+  align-items: stretch
+  display: block
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 1
+  min-height: min-content
+  // Modifiers
+  &.is-ancestor
+    margin-left: -0.75rem
+    margin-right: -0.75rem
+    margin-top: -0.75rem
+    &:last-child
+      margin-bottom: -0.75rem
+    &:not(:last-child)
+      margin-bottom: 0.75rem
+  &.is-child
+    margin: 0 !important
+  &.is-parent
+    padding: 0.75rem
+  &.is-vertical
+    flex-direction: column
+    & > .tile.is-child:not(:last-child)
+      margin-bottom: 1.5rem !important
+  // Responsiveness
+  +tablet
+    &:not(.is-child)
+      display: flex
+    @for $i from 1 through 12
+      &.is-#{$i}
+        flex: none
+        width: ($i / 12) * 100%
+
+```
+<a name="bulma-layout" />
+
+### bulma / sass / layout
+
+hero.sass
+
+```sass
+// Components
+
+.hero-video
+  +overlay
+  overflow: hidden
+  video
+    left: 50%
+    min-height: 100%
+    min-width: 100%
+    position: absolute
+    top: 50%
+    transform: translate3d(-50%, -50%, 0)
+  // Modifiers
+  &.is-transparent
+    opacity: 0.3
+  // Responsiveness
+  +mobile
+    display: none
+
+.hero-buttons
+  margin-top: 1.5rem
+  // Responsiveness
+  +mobile
+    .button
+      display: flex
+      &:not(:last-child)
+        margin-bottom: 0.75rem
+  +tablet
+    display: flex
+    justify-content: center
+    .button:not(:last-child)
+      margin-right: 1.5rem
+
+// Containers
+
+.hero-head,
+.hero-foot
+  flex-grow: 0
+  flex-shrink: 0
+
+.hero-body
+  flex-grow: 1
+  flex-shrink: 0
+  padding: 3rem 1.5rem
+  // Responsiveness
+  +from($widescreen)
+    padding-left: 0
+    padding-right: 0
+
+// Main container
+
+.hero
+  align-items: stretch
+  background-color: $white
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  .nav
+    background: none
+    box-shadow: 0 1px 0 rgba($border, 0.3)
+  .tabs
+    ul
+      border-bottom: none
+  // Colors
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.is-#{$name}
+      background-color: $color
+      color: $color-invert
+      a,
+      strong
+        color: inherit
+      .title
+        color: $color-invert
+      .subtitle
+        color: rgba($color-invert, 0.9)
+        a,
+        strong
+          color: $color-invert
+      .nav
+        box-shadow: 0 1px 0 rgba($color-invert, 0.2)
+      .nav-menu
+        +mobile
+          background-color: $color
+      a.nav-item,
+      .nav-item a:not(.button)
+        color: rgba($color-invert, 0.7)
+        &:hover,
+        &.is-active
+          color: $color-invert
+      .tabs
+        a
+          color: $color-invert
+          opacity: 0.9
+          &:hover
+            opacity: 1
+        li
+          &.is-active a
+            opacity: 1
+        &.is-boxed,
+        &.is-toggle
+          a
+            color: $color-invert
+            &:hover
+              background-color: rgba($black, 0.1)
+          li.is-active a
+            &,
+            &:hover
+              background-color: $color-invert
+              border-color: $color-invert
+              color: $color
+      // Modifiers
+      &.is-bold
+        $gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%)
+        $gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%)
+        background-image: linear-gradient(141deg, $gradient-top-left 0%, $color 71%, $gradient-bottom-right 100%)
+      // Responsiveness
+      +mobile
+        .nav-toggle
+          span
+            background-color: $color-invert
+          &:hover
+            background-color: rgba($black, 0.1)
+          &.is-active
+            span
+              background-color: $color-invert
+        .nav-menu
+          .nav-item
+            border-top-color: rgba($color-invert, 0.2)
+  // Sizes
+  &.is-medium
+    +tablet
+      .hero-body
+        padding-bottom: 9rem
+        padding-top: 9rem
+  &.is-large
+    +tablet
+      .hero-body
+        padding-bottom: 18rem
+        padding-top: 18rem
+  &.is-fullheight
+    min-height: 100vh
+    .hero-body
+      align-items: center
+      display: flex
+      & > .container
+        flex-grow: 1
+        flex-shrink: 1
+```
+
+section.sass
+
+```sass
+.section
+  background-color: $white
+  padding: 3rem 1.5rem
+  // Responsiveness
+  +desktop
+    // Sizes
+    &.is-medium
+      padding: 9rem 1.5rem
+    &.is-large
+      padding: 18rem 1.5rem
+```
+
+footer.sass
+
+```sass
+.footer
+  background-color: $background
+  padding: 3rem 1.5rem 6rem
 ```
 
 <a name="purecss" />
