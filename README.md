@@ -7,10 +7,11 @@ Let's master frontend.
 2. [Mastering your editor](#editor)
 3. [Mastering Html](#html)
 4. [Mastering CSS](#css)
-5. [Mastering JavaScript](#javascript)
-6. [Mastering 3rd party libraries](#thirdparty)
-7. [Mastering Build tools](#tools)
-8. [Mastering Cloud](#cloud)
+5. [Mastering SVG](#svg)
+6. [Mastering JavaScript](#javascript)
+7. [Mastering 3rd party libraries](#thirdparty)
+8. [Mastering Build tools](#tools)
+9. [Mastering Cloud](#cloud)
 
 <a name="prerequisites" />
 
@@ -109,6 +110,13 @@ So [let's learn](https://github.com/duk/Frontend-Lessons/tree/master/css#masteri
 4. [Learn from Pure CSS](https://github.com/duk/Frontend-Lessons/tree/master/css#purecss)
 5. [CSS Flashcards](https://github.com/duk/Frontend-Lessons/tree/master/css#flashcards)
 6. [Good CSS Websites](https://github.com/duk/Frontend-Lessons/tree/master/css#links)
+
+
+<a name="svg" />
+
+## Mastering SVG
+
+Probably it's too much. But I think SVG will be huge in coming years. If you can equip yourself with some SVG skills on top of CSS skills, you will be in high demand for a long time. I am personally fascinated by what SVG can do. And also SVG plays a huge role in data visualization (e.g. D3js)
 
 <a name="javascript" />
 

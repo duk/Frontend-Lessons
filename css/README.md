@@ -486,6 +486,7 @@ Let's look at [Bulma](https://github.com/jgthms/bulma). If you go there, first t
 
 >To explicitly specify the encoding of your stylesheet, use a @charset declaration just like in CSS. Add @charset "encoding-name"; at the beginning of the stylesheet (before any whitespace or comments) and Sass will interpret it as the given encoding. Note that whatever encoding you use, it must be convertible to Unicode.
 
+[`http://127.0.0.1:8080/css/bulma00.html`](http://127.0.0.1:8080/css/bulma00.html)
 
 ```sass
 @import "sass/utilities/_all"
