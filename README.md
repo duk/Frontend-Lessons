@@ -17,6 +17,8 @@ Let's master frontend.
 
 ## Pre-requisites and my babblings
 
+>"Quite correct!" he shrieked triumphantly. "I am the Terrible Trivium, demon of petty tasks and worthless jobs, ogre of wasted effort, and monster of habit." - From "The Phantom Tollbooth" by Norton Juster
+
 At some point of my career, I got lazy. And others too. Whenever there is a new project kickoff meeting, I hear people blurting out 'let's just use bootstrap!', 'let's just use reactjs!', 'let's use angularjs!' 
 
 That mentality is why you are stuck at where you are and that's why I am stuck at where I am. After spending years reading books on all kind of stuff, I came to realize only "mastery" can truly set me free.
