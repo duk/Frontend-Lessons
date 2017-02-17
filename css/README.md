@@ -482,7 +482,12 @@ Let's look at [Bulma](https://github.com/jgthms/bulma). If you go there, first t
 ```sass
 /*! bulma.io v0.3.1 | MIT License | github.com/jgthms/bulma */
 @charset "utf-8"
+```
 
+>To explicitly specify the encoding of your stylesheet, use a @charset declaration just like in CSS. Add @charset "encoding-name"; at the beginning of the stylesheet (before any whitespace or comments) and Sass will interpret it as the given encoding. Note that whatever encoding you use, it must be convertible to Unicode.
+
+
+```sass
 @import "sass/utilities/_all"
 @import "sass/base/_all"
 @import "sass/elements/_all"
@@ -490,9 +495,15 @@ Let's look at [Bulma](https://github.com/jgthms/bulma). If you go there, first t
 @import "sass/grid/_all"
 @import "sass/layout/_all"
 ```
+
+`@import` is just like regular CSS import, but the significant difference is that Sass `@import` is just a syntatic sugar. It just tells SCSS parser to append that file into a main file.
+
+
 As you can see, sass/scss is great for organizing your project neatly.
 
 You should go read [Sass Documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html) first.
+
+Okay. Let's go through every sass file from top to bottom starting with the files under utilities folder 
 
 sass/utilities/_all
 ```sass
@@ -517,6 +528,11 @@ functions.sass
       $value: $value / $number
   @return $value
 
+```
+
+`$` is how to make something variable in Sass.
+
+```sass
 @function colorLuminance($color)
   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
   @each $name, $value in $color-rgb
@@ -529,25 +545,29 @@ functions.sass
       $value: powerNumber($value, 2)
     $color-rgb: map-merge($color-rgb, ($name: $value))
   @return (map-get($color-rgb, 'red') * .2126) + (map-get($color-rgb, 'green') * .7152) + (map-get($color-rgb, 'blue') * .0722)
+```
 
+```sass
 @function findColorInvert($color)
   @if (colorLuminance($color) > 0.55)
     @return rgba(#000, 0.7)
   @else
     @return #fff
+```
 
+```sass
 @function removeUnit($number)
   @if type-of($number) == 'number' and not unitless($number)
     @return $number / ($number * 0 + 1)
   @return $number
+```
 
+```sass
 @function roundToEvenNumber($number)
   @return floor($number / 2) * 2
 ```
 
 variable.sass
-
-[A Sass `!default` use case](https://robots.thoughtbot.com/sass-default)
 
 ```sass
 ////////////////////////////////////////////////
@@ -569,14 +589,26 @@ $white-ter:    hsl(0, 0%, 96%) !default
 $white-bis:    hsl(0, 0%, 98%) !default
 $white:        hsl(0, 0%, 100%) !default
 
+```
+
+`!default` at the end of every line allows user to override the variable. Aa we learned from color section, `lumenosity(brightness)` can manage three colors; white, black and different shades of grey.
+
+[A Sass `!default` use case](https://robots.thoughtbot.com/sass-default)
+
+```sass
 $orange:       hsl(14,  100%, 53%) !default
 $yellow:       hsl(48,  100%, 67%) !default
+
 $green:        hsl(141, 71%,  48%) !default
 $turquoise:    hsl(171, 100%, 41%) !default
+
 $blue:         hsl(217, 71%,  53%) !default
 $purple:       hsl(271, 100%, 71%) !default
 $red:          hsl(348, 100%, 61%) !default
+```
+For different colors, different hue numbers are used. Notice the nubmers amonst similar colors. I suggest you to play with various numbers to get the colors.
 
+```sass
 // Typography
 $family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !default
 $family-monospace: "Inconsolata", "Consolas", "Monaco", monospace !default
@@ -593,14 +625,18 @@ $weight-light: 300 !default
 $weight-normal: 400 !default
 $weight-semibold: 500 !default
 $weight-bold: 700 !default
+```
 
+```sass
 // Miscellaneous
 $easing: ease-out !default
 $radius-small: 2px !default
 $radius: 3px !default
 $radius-large: 5px !default
 $speed: 86ms !default
+```
 
+```sass
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
 // 2. Primary colors
@@ -615,6 +651,9 @@ $danger: $red !default
 $light: $white-ter !default
 $dark: $grey-darker !default
 
+```
+
+```sass
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
 // 3. Applied variables
@@ -948,6 +987,318 @@ $control-radius-small: $radius-small !default
   font-size: $size-medium
 =control-large
   font-size: $size-large
+```
+
+```sass
+@charset "utf-8"
+
+@import "minireset.sass"
+@import "generic.sass"
+@import "helpers.sass"
+```
+
+```sass
+/*! minireset.css v0.0.2 | MIT License | github.com/jgthms/minireset.css */
+// Blocks
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  margin: 0
+  padding: 0
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  font-size: 100%
+  font-weight: normal
+
+// List
+ul
+  list-style: none
+
+// Form
+button,
+input,
+select,
+textarea
+  margin: 0
+
+// Box sizing
+html
+  box-sizing: border-box
+
+*
+  box-sizing: inherit
+  &:before,
+  &:after
+    box-sizing: inherit
+
+// Media
+img,
+embed,
+object,
+audio,
+video
+  height: auto
+  max-width: 100%
+
+// Iframe
+iframe
+  border: 0
+
+// Table
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+td,
+th
+  padding: 0
+  text-align: left
+```
+
+```sass
+$body-background: $white !default
+$body-size: $size-6 !default
+
+html
+  background-color: $body-background
+  font-size: $body-size
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  min-width: 300px
+  overflow-x: hidden
+  overflow-y: scroll
+  text-rendering: optimizeLegibility
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section
+  display: block
+
+body,
+button,
+input,
+select,
+textarea
+  font-family: $family-primary
+
+code,
+pre
+  -moz-osx-font-smoothing: auto
+  -webkit-font-smoothing: auto
+  font-family: $family-code
+
+body
+  color: $text
+  font-size: 1rem
+  font-weight: $weight-normal
+  line-height: 1.5
+
+// Inline
+
+a
+  color: $link
+  cursor: pointer
+  text-decoration: none
+  transition: none $speed $easing
+  &:hover
+    color: $link-hover
+
+code
+  background-color: $code-background
+  color: $code
+  font-size: 0.8em
+  font-weight: normal
+  padding: 0.25em 0.5em 0.25em
+
+hr
+  background-color: $border
+  border: none
+  display: block
+  height: 1px
+  margin: 1.5rem 0
+
+img
+  max-width: 100%
+
+input[type="checkbox"],
+input[type="radio"]
+  vertical-align: baseline
+
+small
+  font-size: 0.8em
+
+span
+  font-style: inherit
+  font-weight: inherit
+
+strong
+  color: $text-strong
+  font-weight: $weight-bold
+
+// Block
+
+pre
+  background-color: $pre-background
+  color: $pre
+  font-size: 0.8em
+  white-space: pre
+  word-wrap: normal
+  code
+    background: none
+    color: inherit
+    display: block
+    font-size: 1em
+    overflow-x: auto
+    padding: 1.25rem 1.5rem
+
+table
+  width: 100%
+  td,
+  th
+    text-align: left
+    vertical-align: top
+  th
+    color: $text-strong
+```
+
+```sass
+// Display
+
+$displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex'
+
+@each $display in $displays
+  .is-#{$display}
+    display: #{$display}
+  .is-#{$display}-mobile
+    +mobile
+      display: #{$display} !important
+  .is-#{$display}-tablet
+    +tablet
+      display: #{$display} !important
+  .is-#{$display}-tablet-only
+    +tablet-only
+      display: #{$display} !important
+  .is-#{$display}-touch
+    +touch
+      display: #{$display} !important
+  .is-#{$display}-desktop
+    +desktop
+      display: #{$display} !important
+  .is-#{$display}-desktop-only
+    +desktop-only
+      display: #{$display} !important
+  .is-#{$display}-widescreen
+    +widescreen
+      display: #{$display} !important
+
+// Float
+
+.is-clearfix
+  +clearfix
+
+.is-pulled-left
+  float: left
+
+.is-pulled-right
+  float: right
+
+// Overflow
+
+.is-clipped
+  overflow: hidden !important
+
+// Overlay
+
+.is-overlay
+  +overlay
+
+// Text
+
+.has-text-centered
+  text-align: center
+
+.has-text-left
+  text-align: left
+
+.has-text-right
+  text-align: right
+
+// Visibility
+
+.is-hidden
+  display: none !important
+
+.is-hidden-mobile
+  +mobile
+    display: none !important
+
+.is-hidden-tablet
+  +tablet
+    display: none !important
+
+.is-hidden-tablet-only
+  +tablet-only
+    display: none !important
+
+.is-hidden-touch
+  +touch
+    display: none !important
+
+.is-hidden-desktop
+  +desktop
+    display: none !important
+
+.is-hidden-desktop-only
+  +desktop-only
+    display: none !important
+
+.is-hidden-widescreen
+  +widescreen
+    display: none !important
+
+// Other
+
+.is-disabled
+  pointer-events: none
+
+.is-marginless
+  margin: 0 !important
+
+.is-paddingless
+  padding: 0 !important
+
+.is-unselectable
+  +unselectable
 ```
 
 <a name="purecss" />
