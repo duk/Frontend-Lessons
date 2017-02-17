@@ -18,7 +18,7 @@ Let's master frontend.
 
 At some point of my career, I got lazy. And others too. Whenever there is a new project kickoff meeting, I hear people blurting out 'let's just use bootstrap!', 'let's just use reactjs!', 'let's use angularjs!' 
 
-That mentality is why you are stuck at where you are and that why I am stuck at where I am. After spending years reading books on all kind of stuff, I came to realize only "mastery" can truly set me free.
+That mentality is why you are stuck at where you are and that's why I am stuck at where I am. After spending years reading books on all kind of stuff, I came to realize only "mastery" can truly set me free.
 
 And using `bootstrap` will not set you free. By doing that you are turning yourself into an average cog who can easily be replaced; after all, anyone can build a website with `bootstrap`
 

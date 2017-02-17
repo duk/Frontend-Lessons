@@ -26,7 +26,7 @@ Most bad looking websites are because of misuse of colors. To really understand 
 Here are some helpful links that I found
 
 * [Web design 101: color theory](https://webflow.com/blog/web-design-101-color-theory)
-* [A Simple Way to Understand Hue, Saturation and Luminosity](https://www.labnol.org/home/hue-saturation-luminosity/20104/)
+* [A Simple Way to Understand Hue, Saturation and Luminosity](https://www.labnol.org/home/hue-saturation-luminosity/20104/) (Watch the embeded Youtube Video)
 * [Google Material Design Color](https://material.io/guidelines/style/color.html)
 
 
@@ -546,6 +546,8 @@ functions.sass
 ```
 
 variable.sass
+
+[A Sass `!default` use case](https://robots.thoughtbot.com/sass-default)
 
 ```sass
 ////////////////////////////////////////////////
