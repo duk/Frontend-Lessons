@@ -116,7 +116,7 @@ So [let's learn](https://github.com/duk/Frontend-Lessons/tree/master/css#masteri
 
 ## Mastering SVG
 
-Probably it's too much. But I think SVG will be huge in coming years. If you can equip yourself with some SVG skills on top of CSS skills, you will be in high demand for a long time. I am personally fascinated by what SVG can do. And also SVG plays a huge role in data visualization (e.g. D3js)
+Probably it's too much. But I think SVG will be huge in coming years if not already. If you can equip yourself with some SVG skills on top of CSS skills, you will be in high demand for a long time. I am personally fascinated by what SVG can do. And also SVG plays a huge role in data visualization (e.g. D3js)
 
 <a name="javascript" />
 
