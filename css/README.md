@@ -737,6 +737,21 @@ $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 !default
 ```
 mixins.sass
 
+>Some things in CSS are a bit tedious to write, especially with CSS3 and the many vendor prefixes that exist. A mixin lets you make groups of CSS declarations that you want to reuse throughout your site. You can even pass in values to make your mixin more flexible. 
+
+```sass
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+
+.box
+  +border-radius(10px)
+```
+
+
+
 ```sass
 =arrow($color)
   border: 1px solid $color

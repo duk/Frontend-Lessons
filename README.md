@@ -27,7 +27,7 @@ And using `bootstrap` will not set you free. By doing that you are turning yours
 
 To have a logevity in software industry, you need to master your craft. I am tired of being mediocre. I am at a stage where everything seems within a reach, but not quite there. So here I am starting this tutorial.
 
-Yep. It's mostly for me. This is how I spend my `me` time when I wake up early in the morning. I get up, sneak out of bed. But I always wake my dog up. Cooper and I come down to my study, I wake my computer up then I start typing. Cooper would beg for my attention for awhile. Then he gives up, climbs up to his chair and falls back to sleep.
+Yep. It's mostly for me. This is how I spend my `me` time when I wake up early in the morning. I get up, sneak out of bed. But I always wake up my dog. Cooper and I come down to my study, I wake my computer up then I start typing. Cooper would beg for my attention for awhile. Then he gives up, climbs up to his chair and falls back to sleep.
 
 Deciding to start this github project was one of the best ideas that I had. Now I have a goal. No distractions. Just type and learn. Keep moving ahead.
 
@@ -38,6 +38,7 @@ Unlike most folks these days, I am a huge believer in "memorizing as much as pos
 If you don't save anything in your head, are you really a smart person? For me, memorizing means I am planting seeds in my brain. And those seeds grow and grow. And I can think about those while I am walking my dog or driving to work. I can go through html tags from top to bottom. I can design a page in my head putting tags together in my head. Then it snowballs. Then ideas come. It's possible because I have things in my head.
 
 There is a great book called "[The Memory Book](https://www.amazon.com/dp/0345410025)." You should read it. It tells you all kind of tricks on how to memorize.
+
 
 <a name="keyboard" />
 
