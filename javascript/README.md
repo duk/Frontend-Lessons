@@ -6,7 +6,8 @@ We are trying to become a master, not a mere consumer of libraries. As we go thr
 
 ##### Table of Contents  
 
-0. [Learn from JQuery](#jquery)
+0. [Learn DOM](#dom)
+1. [Learn from JQuery](#jquery)
 1. [Learn from Underscore](#underscore)
 2. [Learn from Backbone](#backbone)
 3. [Learn from ReactJS](#reactjs)
@@ -14,6 +15,12 @@ We are trying to become a master, not a mere consumer of libraries. As we go thr
 5. [Look Ma. I can handle server-side as well](#nodejs)
 6. [Let's bring back some sanity to JavaScript and the committee is not moving fast enough](#typesript)
 7. [JavaScript Flashcards](#flashcards)
+   
+<a name="dom" />
+
+## DOM (Document Object Model)
+
+
 
 <a name="jquery" />
 
